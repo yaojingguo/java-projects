@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  implementation "log4j:log4j:1.2.17"
+}
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+test {
+  useJUnitPlatform()
+  testLogging {
+    showStandardStreams true
+    events "passed", "skipped", "failed"
+  }
+}
