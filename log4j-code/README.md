@@ -105,9 +105,12 @@ log4j.configuration
 ```
 
 
-java -cp "lib/log4j-1.2.17.jar:build/classes/java/main" \
-                            -Dlog4j.configuration=file:/Users/jing/code/github/my/java-projects/log4j-code/log4j-conf/log4j2.xml \
-                            Main
+# Message Pattern
+https://github.com/apache/hadoop/blob/d9838f2d42eaadd0769167847af4e8f2963817fb/hadoop-common-project/hadoop-common/src/main/conf/log4j.properties 
+suggests:
+- Debug format: `%d{ISO8601} %-5p %c{2} (%F:%M(%L)) - %m%n`
+- Info format:  `%d{ISO8601} %p %c: %m%n`
+
                             
 myid example
 MDC
