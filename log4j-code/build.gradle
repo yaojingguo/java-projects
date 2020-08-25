@@ -16,6 +16,12 @@ java {
   targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+idea.project {
+  jdkName = '1.8'
+  languageLevel = '1.8'
+}
+
+
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
 test {

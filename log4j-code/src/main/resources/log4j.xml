@@ -10,9 +10,20 @@
         </layout>
     </appender>
 
+    <appender name="mdc" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{ISO8601} [%X{ip}] %-5p %c{2} (%F:%M(%L)) - %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="org.yao.MdcExample" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="mdc" />
+    </logger>
+
     <root>
         <level value="INFO"/>
         <appender-ref ref="console"/>
     </root>
-
 </log4j:configuration>
