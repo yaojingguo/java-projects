@@ -28,6 +28,7 @@ main end
 `java '-Dlog4j.configuration=~/build.gradle' -cp "lib/log4j-1.2.17.jar:build/classes/java/main" Main`
 produces:
 ```
+main start
 log4j:WARN No appenders could be found for logger (Main).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
@@ -57,8 +58,27 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 main end
 ```
 
-# How to Specify Configuration File
+## With a Log4j2 Configuration File
+```
+java -cp "lib/log4j-1.2.17.jar:build/classes/java/main" \
+            -Dlog4j.configuration=file:/Users/jing/code/github/my/java-projects/log4j-code/log4j-conf/log4j2.xml \
+            Main
+```
+produces:
+```
+log4j:WARN Continuable parsing error 2 and column 30
+log4j:WARN Document root element "Configuration", must match DOCTYPE root "null".
+log4j:WARN Continuable parsing error 2 and column 30
+log4j:WARN Document is invalid: no grammar found.
+log4j:ERROR DOM element is - not a <log4j:configuration> element.
+main start
+log4j:WARN No appenders could be found for logger (Main).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+main end
+```
 
+# How to Specify Configuration File
 ```bash
 java -cp "lib/log4j-1.2.17.jar:build/classes/java/main:log4j-conf/valid-xml" Main
 
@@ -84,3 +104,10 @@ log4j.configuration
   URL for default initialization configuration file.
 ```
 
+
+java -cp "lib/log4j-1.2.17.jar:build/classes/java/main" \
+                            -Dlog4j.configuration=file:/Users/jing/code/github/my/java-projects/log4j-code/log4j-conf/log4j2.xml \
+                            Main
+                            
+myid example
+MDC
