@@ -12,7 +12,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 public class PDFSample {
 
     // Page configuration
-    private static final PDRectangle PAGE_SIZE = PDPage.PAGE_SIZE_A3;
+    private static final PDRectangle PAGE_SIZE = PDRectangle.A3;
     private static final float MARGIN = 20;
     private static final boolean IS_LANDSCAPE = true;
 
