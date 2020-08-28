@@ -110,3 +110,5 @@ https://github.com/apache/hadoop/blob/d9838f2d42eaadd0769167847af4e8f2963817fb/h
 suggests:
 - Debug format: `%d{ISO8601} %-5p %c{2} (%F:%M(%L)) - %m%n`
 - Info format:  `%d{ISO8601} %p %c: %m%n`
+
+[Pattern Layout](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html)
