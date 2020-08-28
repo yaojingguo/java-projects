@@ -38,7 +38,9 @@ public class Worker {
     for (char ch : task.toCharArray()) {
       if (ch == '.') {
         try {
-          Thread.sleep(1000);
+          long mills = 1000;
+          System.out.printf("Sleeping... for %d\n", mills);
+          Thread.sleep(mills);
         } catch (InterruptedException _ignored) {
           Thread.currentThread().interrupt();
         }
