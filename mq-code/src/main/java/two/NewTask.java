@@ -12,11 +12,6 @@ public class NewTask {
   private static final String TASK_QUEUE_NAME = "task_queue";
 
   public static void main(String[] argv) throws Exception {
-    if (true) {
-      System.out.println("new task");
-      System.out.println(Arrays.asList(argv));
-      return;
-    }
     ConnectionFactory factory = new ConnectionFactory();
     factory.setHost("localhost");
     try (Connection connection = factory.newConnection();
