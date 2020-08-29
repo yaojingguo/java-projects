@@ -1,6 +1,5 @@
 package six;
 
-
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -43,22 +42,23 @@ public class RPCClient implements AutoCloseable {
     final String corrId = UUID.randomUUID().toString();
 
     String replyQueueName = channel.queueDeclare().getQueue();
-    AMQP.BasicProperties props = new AMQP.BasicProperties
-        .Builder()
-        .correlationId(corrId)
-        .replyTo(replyQueueName)
-        .build();
+    AMQP.BasicProperties props =
+        new AMQP.BasicProperties.Builder().correlationId(corrId).replyTo(replyQueueName).build();
 
     channel.basicPublish("", requestQueueName, props, message.getBytes("UTF-8"));
 
     final BlockingQueue<String> response = new ArrayBlockingQueue<>(1);
 
-    String ctag = channel.basicConsume(replyQueueName, true, (consumerTag, delivery) -> {
-      if (delivery.getProperties().getCorrelationId().equals(corrId)) {
-        response.offer(new String(delivery.getBody(), "UTF-8"));
-      }
-    }, consumerTag -> {
-    });
+    String ctag =
+        channel.basicConsume(
+            replyQueueName,
+            true,
+            (consumerTag, delivery) -> {
+              if (delivery.getProperties().getCorrelationId().equals(corrId)) {
+                response.offer(new String(delivery.getBody(), "UTF-8"));
+              }
+            },
+            consumerTag -> {});
 
     String result = response.take();
     channel.basicCancel(ctag);
