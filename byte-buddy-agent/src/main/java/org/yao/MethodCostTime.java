@@ -13,7 +13,10 @@ public class MethodCostTime {
       throws Exception {
     long start = System.currentTimeMillis();
     try {
-      return callable.call();
+      System.out.println("calling");
+      Object result = callable.call();
+      System.out.println("called");
+      return result;
     } finally {
       System.out.println(method + " method costed " + (System.currentTimeMillis() - start) + "ms");
     }
