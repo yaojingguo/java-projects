@@ -1,6 +1,6 @@
 # Set Up
 ```
-$ java org/yao/trace/Hi.java
+$ javac org/yao/trace/Hi.java
 $ mvn package
 $ 
 

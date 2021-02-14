@@ -15,7 +15,7 @@ public class MethodCostTime {
     try {
       return callable.call();
     } finally {
-      System.out.println(method + " 方法耗时： " + (System.currentTimeMillis() - start) + "ms");
+      System.out.println(method + " method costed " + (System.currentTimeMillis() - start) + "ms");
     }
   }
 }

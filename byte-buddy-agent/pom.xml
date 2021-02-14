@@ -6,7 +6,7 @@
 
     <groupId>org.yao</groupId>
     <artifactId>my-agent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>my-agent</name>
     <description>Java Agent with Byte Buddy</description>
 

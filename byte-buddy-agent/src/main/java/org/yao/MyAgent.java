@@ -12,7 +12,7 @@ import java.lang.instrument.Instrumentation;
 public class MyAgent {
   // JVM will try this method first.
   public static void premain(String agentArgs, Instrumentation inst) {
-    System.out.println("this is my agent：" + agentArgs);
+    System.out.println("premain with instrumentation");
 
     AgentBuilder.Transformer transformer =
         (builder, typeDescription, classLoader, javaModule) -> {
@@ -56,12 +56,14 @@ public class MyAgent {
         };
 
     new AgentBuilder.Default()
-        .type(ElementMatchers.nameStartsWith("org.yao.trace")) // 指定需要拦截的类
+        .type(ElementMatchers.nameStartsWith("org.yao.trace")) // package to be intercepted
         .transform(transformer)
         .with(listener)
         .installOn(inst);
   }
 
   // If agent class does not implement the above method, JVM will try to invoke this method.
-  public static void premain(String agentArgs) {}
+  public static void premain(String agentArgs) {
+    System.out.println("premain without instrumentation");
+  }
 }
