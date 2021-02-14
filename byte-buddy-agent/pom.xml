@@ -4,18 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>rest-service</artifactId>
+    <groupId>org.yao</groupId>
+    <artifactId>my-agent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rest-service</name>
-    <description>Demo project for Spring Boot</description>
-
+    <name>my-agent</name>
+    <description>Java Agent with Byte Buddy</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-<!--        <maven.configuration.manifestFile>src/main/resources/META-INF/MANIFEST.MF-->
-<!--        </maven.configuration.manifestFile>-->
     </properties>
 
     <dependencies>
@@ -65,8 +62,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
-
     </build>
 
 </project>
