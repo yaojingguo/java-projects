@@ -10,16 +10,15 @@ import net.bytebuddy.utility.JavaModule;
 import java.lang.instrument.Instrumentation;
 
 public class MyAgent {
-
-  // JVM 首先尝试在代理类上调用以下方法
+  // JVM will try this method first.
   public static void premain(String agentArgs, Instrumentation inst) {
     System.out.println("this is my agent：" + agentArgs);
 
     AgentBuilder.Transformer transformer =
         (builder, typeDescription, classLoader, javaModule) -> {
           return builder
-              .method(ElementMatchers.any()) // 拦截任意方法
-              .intercept(MethodDelegation.to(MethodCostTime.class)); // 委托
+              .method(ElementMatchers.any()) // intercept any methods
+              .intercept(MethodDelegation.to(MethodCostTime.class)); // delegate
         };
 
     AgentBuilder.Listener listener =
@@ -57,12 +56,12 @@ public class MyAgent {
         };
 
     new AgentBuilder.Default()
-        .type(ElementMatchers.nameStartsWith("org.itstack.demo.test")) // 指定需要拦截的类
+        .type(ElementMatchers.nameStartsWith("org.yao.trace")) // 指定需要拦截的类
         .transform(transformer)
         .with(listener)
         .installOn(inst);
   }
 
-  // 如果代理类没有实现上面的方法，那么 JVM 将尝试调用该方法
+  // If agent class does not implement the above method, JVM will try to invoke this method.
   public static void premain(String agentArgs) {}
 }

@@ -3,7 +3,7 @@ package org.yao;
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.matcher.ElementMatchers;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
