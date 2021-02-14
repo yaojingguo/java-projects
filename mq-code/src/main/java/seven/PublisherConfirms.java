@@ -18,8 +18,8 @@ public class PublisherConfirms {
   static Connection createConnection() throws Exception {
     ConnectionFactory cf = new ConnectionFactory();
     cf.setHost("localhost");
-    cf.setUsername("guest");
-    cf.setPassword("guest");
+//    cf.setUsername("guest");
+//    cf.setPassword("guest");
     return cf.newConnection();
   }
 
