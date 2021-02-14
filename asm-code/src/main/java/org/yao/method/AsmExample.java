@@ -45,6 +45,7 @@ public class AsmExample extends ClassLoader implements Opcodes {
     }
     System.out.println();
 
+    System.out.println("new behaviour\n");
     // Invoke the first method whose name is execute1
     System.out.println("method 0");
     System.out.println("method name: " + fooClass.getMethods()[0].getName());
@@ -63,11 +64,14 @@ public class AsmExample extends ClassLoader implements Opcodes {
     // Invoke the third method whose behaviour has been changed
     System.out.println("method name: " + fooClass.getMethods()[2].getName());
     System.out.println("parameter count: " + fooClass.getMethods()[2].getParameterCount());
-    fooClass.getMethods()[2].invoke(null, "one");
+    fooClass.getMethods()[2].invoke(null, new String[1]);
 
-    // gets the bytecode of the Example class, and loads it dynamically
-//    FileOutputStream fos = new FileOutputStream("Foo.class");
-//    fos.write(code);
-//    fos.close();
+    System.out.println("old behaviour\n");
+    new Foo().execute();
+
+//     gets the bytecode of the Example class, and loads it dynamically
+    FileOutputStream fos = new FileOutputStream("Foo.class");
+    fos.write(code);
+    fos.close();
   }
 }

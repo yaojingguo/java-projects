@@ -5,10 +5,10 @@ package org.yao.method;
  */
 public class Foo {
   public void execute() {
-    System.out.println("a method whose name has been changed");
+    System.out.println("a method whose name will be changed");
   }
 
   public void changeMethodContent() {
-    System.out.println("a method whose behaviour has been changed");
+    System.out.println("a method whose behaviour will be changed");
   }
 }
