@@ -8,11 +8,11 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>rest-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>rest-service</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>org.yao</groupId>
+	<artifactId>spring-boot-code</artifactId>
+	<version>0.0.1</version>
+	<name>spring-boot-code</name>
+	<description>spring-boot-code</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -21,7 +21,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -48,5 +47,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
