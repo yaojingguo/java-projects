@@ -1,4 +1,4 @@
-package com.example.restservice;
+package org.yao;
 
 public class Greeting {
 
