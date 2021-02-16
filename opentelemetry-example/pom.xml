@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>org.yao</groupId>
-	<artifactId>spring-boot-code</artifactId>
+	<artifactId>opentelemetry-code</artifactId>
 	<version>0.0.1</version>
-	<name>spring-boot-code</name>
-	<description>spring-boot-code</description>
+	<name>opentelemetry-code</name>
+	<description>opentelemetry-code</description>
 
 	<properties>
 		<java.version>11</java.version>
