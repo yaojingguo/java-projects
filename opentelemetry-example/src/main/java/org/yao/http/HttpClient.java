@@ -48,7 +48,7 @@ public class HttpClient {
     // Set to export the traces also to a log file
     tracerManagement.addSpanProcessor(SimpleSpanProcessor.builder(loggingExporter).build());
 
-    Util.setupJaegerExporter();
+    Util.setupJaegerExporter("http-client");
   }
 
   private void makeRequest() throws IOException {
@@ -64,6 +64,7 @@ public class HttpClient {
     Span span = tracer.spanBuilder("/").setSpanKind(Span.Kind.CLIENT).startSpan();
     try (Scope scope = span.makeCurrent()) {
       // TODO provide semantic convention attributes to Span.Builder
+      // setAttribute has nothing to do with context propagation.
       span.setAttribute("component", "http");
       span.setAttribute("http.method", "GET");
       /*
@@ -109,15 +110,17 @@ public class HttpClient {
    *
    * @param args It is not required.
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     initTracing();
     HttpClient httpClient = new HttpClient();
 
+    final int limit = 1;
     // Perform request every 5s
     Thread t =
         new Thread(
             () -> {
-              while (true) {
+              int count = 0;
+              while (count++ < limit) {
                 try {
                   httpClient.makeRequest();
                   Thread.sleep(5000);
@@ -127,5 +130,7 @@ public class HttpClient {
               }
             });
     t.start();
+//    Thread.sleep(10 * 1000);
+//    OpenTelemetrySdk.getGlobalTracerManagement().shutdown();
   }
 }

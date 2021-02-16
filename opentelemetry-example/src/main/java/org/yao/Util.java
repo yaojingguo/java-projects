@@ -7,7 +7,7 @@ import io.opentelemetry.sdk.OpenTelemetrySdk;
 import io.opentelemetry.sdk.trace.export.SimpleSpanProcessor;
 
 public class Util {
-  public static void setupJaegerExporter() {
+  public static void setupJaegerExporter(String serviceName) {
     // Create a channel towards Jaeger end point
     ManagedChannel jaegerChannel =
         ManagedChannelBuilder.forAddress("localhost", 14250).usePlaintext().build();
@@ -15,7 +15,7 @@ public class Util {
     // Export traces to Jaeger
     JaegerGrpcSpanExporter jaegerExporter =
         JaegerGrpcSpanExporter.builder()
-            .setServiceName("http-client")
+            .setServiceName(serviceName)
             .setChannel(jaegerChannel)
             .setDeadlineMs(30000)
             .build();

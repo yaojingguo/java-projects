@@ -130,7 +130,7 @@ public class HttpServer {
     // Set to export the traces also to a log file
     tracerManagement.addSpanProcessor(SimpleSpanProcessor.builder(loggingExporter).build());
 
-    Util.setupJaegerExporter();
+    Util.setupJaegerExporter("http-server");
   }
 
   private void stop() {
