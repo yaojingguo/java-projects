@@ -1,3 +1,2 @@
-INFO: span: SpanWrapper{delegate=RecordEventsReadableSpan{traceId=02951c128584f395b398eb1ef40657fa, spanId=2946da1d0706e52d, parentSpanId=0000000000000000, name=/, kind=CLIENT, attributes=null, status=ImmutableStatus{canonicalCode=UNSET, description=null}, totalRecordedEvents=0, totalRecordedLinks=0, startEpochNanos=1613474884350004360, endEpochNanos=1613474884352375752}, resolvedLinks=[], resolvedEvents=[], attributes={}, totalAttributeCount=0, totalRecordedEvents=0, status=ImmutableStatus{canonicalCode=UNSET, description=null}, name=/, endEpochNanos=1613474884352375752, internalHasEnded=true}
 
 
