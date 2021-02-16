@@ -1,6 +1,5 @@
 package org.yao.jaeger;
 
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.opentelemetry.api.OpenTelemetry;
@@ -13,8 +12,8 @@ import io.opentelemetry.sdk.trace.export.SimpleSpanProcessor;
 public class JaegerExample {
 
   // Jaeger Endpoint URL and PORT
-  private final String ip; // = "jaeger";
-  private final int port; // = 14250;
+  private final String ip;
+  private final int port;
 
   // OTel API
   private final Tracer tracer =
@@ -29,7 +28,7 @@ public class JaegerExample {
     // Create a channel towards Jaeger end point
     ManagedChannel jaegerChannel =
         ManagedChannelBuilder.forAddress(ip, port).usePlaintext().build();
-    // Export traces to Jaeger
+
     // Export traces to Jaeger
     JaegerGrpcSpanExporter jaegerExporter =
         JaegerGrpcSpanExporter.builder()
@@ -67,13 +66,17 @@ public class JaegerExample {
   }
 
   public static void main(String[] args) {
+    String ip;
+    int port;
     // Parsing the input
     if (args.length < 2) {
       System.out.println("Missing [hostname] [port]");
-      System.exit(1);
+      ip = "localhost";
+      port = 14250;
+    } else {
+      ip = args[0];
+      port = Integer.parseInt(args[1]);
     }
-    String ip = args[0];
-    int port = Integer.parseInt(args[1]);
 
     // Start the example
     JaegerExample example = new JaegerExample(ip, port);
