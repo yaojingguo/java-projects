@@ -6,7 +6,6 @@ import java.util.concurrent.Executors;
 public class TransferDemo {
 
   public static void main(String[] args) {
-    System.out.println("hi");
     ExecutorService executor = Executors.newFixedThreadPool(3);
     for (int i = 1; i <= 10; i++) {
       Transfer tx = new Transfer("tid-" + i, "jingguo", "xiaoyu", i);
