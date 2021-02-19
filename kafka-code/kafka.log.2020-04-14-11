@@ -1,0 +1,229 @@
+[2020-04-14 11:30:05,495] INFO ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 100
+	client.dns.lookup = default
+	client.id = bogon
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 10000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 1
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+ (org.apache.kafka.clients.producer.ProducerConfig)
+[2020-04-14 11:30:05,614] DEBUG Added sensor with name bufferpool-wait-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,619] DEBUG Added sensor with name buffer-exhausted-records (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,625] DEBUG Added sensor with name errors (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,636] DEBUG Added sensor with name produce-throttle-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,654] DEBUG Added sensor with name connections-closed: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,655] DEBUG Added sensor with name connections-created: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,656] DEBUG Added sensor with name successful-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,657] DEBUG Added sensor with name successful-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,657] DEBUG Added sensor with name successful-authentication-no-reauth: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,657] DEBUG Added sensor with name failed-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,660] DEBUG Added sensor with name failed-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,661] DEBUG Added sensor with name reauthentication-latency: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,662] DEBUG Added sensor with name bytes-sent-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,664] DEBUG Added sensor with name bytes-sent: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,665] DEBUG Added sensor with name bytes-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,666] DEBUG Added sensor with name select-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,667] DEBUG Added sensor with name io-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,741] DEBUG Added sensor with name batch-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,742] DEBUG Added sensor with name compression-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,742] DEBUG Added sensor with name queue-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,743] DEBUG Added sensor with name request-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,743] DEBUG Added sensor with name records-per-request (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,743] DEBUG Added sensor with name record-retries (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,744] DEBUG Added sensor with name record-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,745] DEBUG Added sensor with name batch-split-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,746] DEBUG [Producer clientId=bogon] Starting Kafka producer I/O thread. (org.apache.kafka.clients.producer.internals.Sender)
+[2020-04-14 11:30:05,747] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:05,748] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:05,750] INFO Kafka version: 2.4.0 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:05,751] INFO Kafka commitId: 77a89fcf8d7fa018 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:05,751] INFO Kafka startTimeMs: 1586835005746 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:05,755] DEBUG [Producer clientId=bogon] Kafka producer started (org.apache.kafka.clients.producer.KafkaProducer)
+[2020-04-14 11:30:05,795] DEBUG Added sensor with name node--1.bytes-sent (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,798] DEBUG Added sensor with name node--1.bytes-received (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,800] DEBUG Added sensor with name node--1.latency (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:05,806] DEBUG [Producer clientId=bogon] Created socket with SO_RCVBUF = 326640, SO_SNDBUF = 146988, SO_TIMEOUT = 0 to node -1 (org.apache.kafka.common.network.Selector)
+[2020-04-14 11:30:06,007] DEBUG [Producer clientId=bogon] Completed connection to node -1. Fetching API versions. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:06,007] DEBUG [Producer clientId=bogon] Initiating API versions fetch from node -1. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:06,117] DEBUG [Producer clientId=bogon] Recorded API versions for node -1: (Produce(0): 0 to 8 [usable: 8], Fetch(1): 0 to 11 [usable: 11], ListOffsets(2): 0 to 5 [usable: 5], Metadata(3): 0 to 9 [usable: 9], LeaderAndIsr(4): 0 to 4 [usable: 4], StopReplica(5): 0 to 2 [usable: 2], UpdateMetadata(6): 0 to 6 [usable: 6], ControlledShutdown(7): 0 to 3 [usable: 3], OffsetCommit(8): 0 to 8 [usable: 8], OffsetFetch(9): 0 to 6 [usable: 6], FindCoordinator(10): 0 to 3 [usable: 3], JoinGroup(11): 0 to 6 [usable: 6], Heartbeat(12): 0 to 4 [usable: 4], LeaveGroup(13): 0 to 4 [usable: 4], SyncGroup(14): 0 to 4 [usable: 4], DescribeGroups(15): 0 to 5 [usable: 5], ListGroups(16): 0 to 3 [usable: 3], SaslHandshake(17): 0 to 1 [usable: 1], ApiVersions(18): 0 to 3 [usable: 3], CreateTopics(19): 0 to 5 [usable: 5], DeleteTopics(20): 0 to 4 [usable: 4], DeleteRecords(21): 0 to 1 [usable: 1], InitProducerId(22): 0 to 2 [usable: 2], OffsetForLeaderEpoch(23): 0 to 3 [usable: 3], AddPartitionsToTxn(24): 0 to 1 [usable: 1], AddOffsetsToTxn(25): 0 to 1 [usable: 1], EndTxn(26): 0 to 1 [usable: 1], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 2 [usable: 2], DescribeAcls(29): 0 to 1 [usable: 1], CreateAcls(30): 0 to 1 [usable: 1], DeleteAcls(31): 0 to 1 [usable: 1], DescribeConfigs(32): 0 to 2 [usable: 2], AlterConfigs(33): 0 to 1 [usable: 1], AlterReplicaLogDirs(34): 0 to 1 [usable: 1], DescribeLogDirs(35): 0 to 1 [usable: 1], SaslAuthenticate(36): 0 to 1 [usable: 1], CreatePartitions(37): 0 to 1 [usable: 1], CreateDelegationToken(38): 0 to 2 [usable: 2], RenewDelegationToken(39): 0 to 1 [usable: 1], ExpireDelegationToken(40): 0 to 1 [usable: 1], DescribeDelegationToken(41): 0 to 1 [usable: 1], DeleteGroups(42): 0 to 2 [usable: 2], ElectLeaders(43): 0 to 2 [usable: 2], IncrementalAlterConfigs(44): 0 to 1 [usable: 1], AlterPartitionReassignments(45): 0 [usable: 0], ListPartitionReassignments(46): 0 [usable: 0], OffsetDelete(47): 0 [usable: 0]) (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:06,119] DEBUG [Producer clientId=bogon] Sending metadata request MetadataRequestData(topics=[MetadataRequestTopic(name='apiTopic')], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: -1 rack: null) (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:06,130] DEBUG [Producer clientId=bogon] Updating last seen epoch from null to 0 for partition apiTopic-0 (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:06,132] INFO [Producer clientId=bogon] Cluster ID: 725BE5VGQJCiGDmRxVXXWw (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:06,132] DEBUG [Producer clientId=bogon] Updated cluster metadata updateVersion 2 to MetadataCache{clusterId='725BE5VGQJCiGDmRxVXXWw', nodes=[bogon:9092 (id: 0 rack: null)], partitions=[PartitionInfoAndEpoch{partitionInfo=Partition(topic = apiTopic, partition = 0, leader = 0, replicas = [0], isr = [0], offlineReplicas = []), epoch=0}], controller=bogon:9092 (id: 0 rack: null)} (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:50,518] INFO ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 26384
+	client.dns.lookup = default
+	client.id = bogon
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 1000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 1
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+ (org.apache.kafka.clients.producer.ProducerConfig)
+[2020-04-14 11:30:50,670] DEBUG Added sensor with name bufferpool-wait-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,677] DEBUG Added sensor with name buffer-exhausted-records (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,686] DEBUG Added sensor with name errors (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,708] DEBUG Added sensor with name produce-throttle-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,731] DEBUG Added sensor with name connections-closed: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,734] DEBUG Added sensor with name connections-created: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,734] DEBUG Added sensor with name successful-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,735] DEBUG Added sensor with name successful-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,736] DEBUG Added sensor with name successful-authentication-no-reauth: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,737] DEBUG Added sensor with name failed-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,747] DEBUG Added sensor with name failed-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,748] DEBUG Added sensor with name reauthentication-latency: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,748] DEBUG Added sensor with name bytes-sent-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,749] DEBUG Added sensor with name bytes-sent: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,752] DEBUG Added sensor with name bytes-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,754] DEBUG Added sensor with name select-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,757] DEBUG Added sensor with name io-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,860] DEBUG Added sensor with name batch-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,861] DEBUG Added sensor with name compression-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,862] DEBUG Added sensor with name queue-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,862] DEBUG Added sensor with name request-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,862] DEBUG Added sensor with name records-per-request (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,863] DEBUG Added sensor with name record-retries (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,865] DEBUG Added sensor with name record-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,867] DEBUG Added sensor with name batch-split-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,868] DEBUG [Producer clientId=bogon] Starting Kafka producer I/O thread. (org.apache.kafka.clients.producer.internals.Sender)
+[2020-04-14 11:30:50,869] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:50,870] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:50,872] INFO Kafka version: 2.4.0 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:50,873] INFO Kafka commitId: 77a89fcf8d7fa018 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:50,873] INFO Kafka startTimeMs: 1586835050868 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 11:30:50,879] DEBUG [Producer clientId=bogon] Kafka producer started (org.apache.kafka.clients.producer.KafkaProducer)
+[2020-04-14 11:30:50,900] DEBUG Added sensor with name node--1.bytes-sent (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,901] DEBUG Added sensor with name node--1.bytes-received (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,901] DEBUG Added sensor with name node--1.latency (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:50,905] DEBUG [Producer clientId=bogon] Created socket with SO_RCVBUF = 326640, SO_SNDBUF = 146988, SO_TIMEOUT = 0 to node -1 (org.apache.kafka.common.network.Selector)
+[2020-04-14 11:30:51,171] DEBUG [Producer clientId=bogon] Completed connection to node -1. Fetching API versions. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,172] DEBUG [Producer clientId=bogon] Initiating API versions fetch from node -1. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,280] DEBUG [Producer clientId=bogon] Recorded API versions for node -1: (Produce(0): 0 to 8 [usable: 8], Fetch(1): 0 to 11 [usable: 11], ListOffsets(2): 0 to 5 [usable: 5], Metadata(3): 0 to 9 [usable: 9], LeaderAndIsr(4): 0 to 4 [usable: 4], StopReplica(5): 0 to 2 [usable: 2], UpdateMetadata(6): 0 to 6 [usable: 6], ControlledShutdown(7): 0 to 3 [usable: 3], OffsetCommit(8): 0 to 8 [usable: 8], OffsetFetch(9): 0 to 6 [usable: 6], FindCoordinator(10): 0 to 3 [usable: 3], JoinGroup(11): 0 to 6 [usable: 6], Heartbeat(12): 0 to 4 [usable: 4], LeaveGroup(13): 0 to 4 [usable: 4], SyncGroup(14): 0 to 4 [usable: 4], DescribeGroups(15): 0 to 5 [usable: 5], ListGroups(16): 0 to 3 [usable: 3], SaslHandshake(17): 0 to 1 [usable: 1], ApiVersions(18): 0 to 3 [usable: 3], CreateTopics(19): 0 to 5 [usable: 5], DeleteTopics(20): 0 to 4 [usable: 4], DeleteRecords(21): 0 to 1 [usable: 1], InitProducerId(22): 0 to 2 [usable: 2], OffsetForLeaderEpoch(23): 0 to 3 [usable: 3], AddPartitionsToTxn(24): 0 to 1 [usable: 1], AddOffsetsToTxn(25): 0 to 1 [usable: 1], EndTxn(26): 0 to 1 [usable: 1], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 2 [usable: 2], DescribeAcls(29): 0 to 1 [usable: 1], CreateAcls(30): 0 to 1 [usable: 1], DeleteAcls(31): 0 to 1 [usable: 1], DescribeConfigs(32): 0 to 2 [usable: 2], AlterConfigs(33): 0 to 1 [usable: 1], AlterReplicaLogDirs(34): 0 to 1 [usable: 1], DescribeLogDirs(35): 0 to 1 [usable: 1], SaslAuthenticate(36): 0 to 1 [usable: 1], CreatePartitions(37): 0 to 1 [usable: 1], CreateDelegationToken(38): 0 to 2 [usable: 2], RenewDelegationToken(39): 0 to 1 [usable: 1], ExpireDelegationToken(40): 0 to 1 [usable: 1], DescribeDelegationToken(41): 0 to 1 [usable: 1], DeleteGroups(42): 0 to 2 [usable: 2], ElectLeaders(43): 0 to 2 [usable: 2], IncrementalAlterConfigs(44): 0 to 1 [usable: 1], AlterPartitionReassignments(45): 0 [usable: 0], ListPartitionReassignments(46): 0 [usable: 0], OffsetDelete(47): 0 [usable: 0]) (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,281] DEBUG [Producer clientId=bogon] Sending metadata request MetadataRequestData(topics=[MetadataRequestTopic(name='apiTopic')], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: -1 rack: null) (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,293] DEBUG [Producer clientId=bogon] Updating last seen epoch from null to 0 for partition apiTopic-0 (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:51,295] INFO [Producer clientId=bogon] Cluster ID: 725BE5VGQJCiGDmRxVXXWw (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:51,295] DEBUG [Producer clientId=bogon] Updated cluster metadata updateVersion 2 to MetadataCache{clusterId='725BE5VGQJCiGDmRxVXXWw', nodes=[bogon:9092 (id: 0 rack: null)], partitions=[PartitionInfoAndEpoch{partitionInfo=Partition(topic = apiTopic, partition = 0, leader = 0, replicas = [0], isr = [0], offlineReplicas = []), epoch=0}], controller=bogon:9092 (id: 0 rack: null)} (org.apache.kafka.clients.Metadata)
+[2020-04-14 11:30:51,312] DEBUG [Producer clientId=bogon] Initiating connection to node bogon:9092 (id: 0 rack: null) using address bogon/10.201.60.136 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,312] DEBUG Added sensor with name node-0.bytes-sent (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,313] DEBUG Added sensor with name node-0.bytes-received (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,314] DEBUG Added sensor with name node-0.latency (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,314] DEBUG [Producer clientId=bogon] Created socket with SO_RCVBUF = 310308, SO_SNDBUF = 146988, SO_TIMEOUT = 0 to node 0 (org.apache.kafka.common.network.Selector)
+[2020-04-14 11:30:51,314] DEBUG [Producer clientId=bogon] Completed connection to node 0. Fetching API versions. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,314] DEBUG [Producer clientId=bogon] Initiating API versions fetch from node 0. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,316] DEBUG [Producer clientId=bogon] Recorded API versions for node 0: (Produce(0): 0 to 8 [usable: 8], Fetch(1): 0 to 11 [usable: 11], ListOffsets(2): 0 to 5 [usable: 5], Metadata(3): 0 to 9 [usable: 9], LeaderAndIsr(4): 0 to 4 [usable: 4], StopReplica(5): 0 to 2 [usable: 2], UpdateMetadata(6): 0 to 6 [usable: 6], ControlledShutdown(7): 0 to 3 [usable: 3], OffsetCommit(8): 0 to 8 [usable: 8], OffsetFetch(9): 0 to 6 [usable: 6], FindCoordinator(10): 0 to 3 [usable: 3], JoinGroup(11): 0 to 6 [usable: 6], Heartbeat(12): 0 to 4 [usable: 4], LeaveGroup(13): 0 to 4 [usable: 4], SyncGroup(14): 0 to 4 [usable: 4], DescribeGroups(15): 0 to 5 [usable: 5], ListGroups(16): 0 to 3 [usable: 3], SaslHandshake(17): 0 to 1 [usable: 1], ApiVersions(18): 0 to 3 [usable: 3], CreateTopics(19): 0 to 5 [usable: 5], DeleteTopics(20): 0 to 4 [usable: 4], DeleteRecords(21): 0 to 1 [usable: 1], InitProducerId(22): 0 to 2 [usable: 2], OffsetForLeaderEpoch(23): 0 to 3 [usable: 3], AddPartitionsToTxn(24): 0 to 1 [usable: 1], AddOffsetsToTxn(25): 0 to 1 [usable: 1], EndTxn(26): 0 to 1 [usable: 1], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 2 [usable: 2], DescribeAcls(29): 0 to 1 [usable: 1], CreateAcls(30): 0 to 1 [usable: 1], DeleteAcls(31): 0 to 1 [usable: 1], DescribeConfigs(32): 0 to 2 [usable: 2], AlterConfigs(33): 0 to 1 [usable: 1], AlterReplicaLogDirs(34): 0 to 1 [usable: 1], DescribeLogDirs(35): 0 to 1 [usable: 1], SaslAuthenticate(36): 0 to 1 [usable: 1], CreatePartitions(37): 0 to 1 [usable: 1], CreateDelegationToken(38): 0 to 2 [usable: 2], RenewDelegationToken(39): 0 to 1 [usable: 1], ExpireDelegationToken(40): 0 to 1 [usable: 1], DescribeDelegationToken(41): 0 to 1 [usable: 1], DeleteGroups(42): 0 to 2 [usable: 2], ElectLeaders(43): 0 to 2 [usable: 2], IncrementalAlterConfigs(44): 0 to 1 [usable: 1], AlterPartitionReassignments(45): 0 [usable: 0], ListPartitionReassignments(46): 0 [usable: 0], OffsetDelete(47): 0 [usable: 0]) (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 11:30:51,320] DEBUG Added sensor with name topic.apiTopic.records-per-batch (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,320] DEBUG Added sensor with name topic.apiTopic.bytes (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,321] DEBUG Added sensor with name topic.apiTopic.compression-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,321] DEBUG Added sensor with name topic.apiTopic.record-retries (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 11:30:51,321] DEBUG Added sensor with name topic.apiTopic.record-errors (org.apache.kafka.common.metrics.Metrics)

@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  jcenter()
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+  implementation "org.apache.kafka:kafka-clients:2.4.0"
+  implementation 'org.slf4j:slf4j-log4j12:1.7.28'
+  implementation 'log4j:log4j:1.2.17'
+
+  implementation "com.google.guava:guava:28.2-jre"
+
+  testImplementation "junit:junit:4.12"
+  testImplementation "com.google.truth:truth:1.0.1"
+}
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+test {
+  useJUnitPlatform()
+  testLogging {
+    showStandardStreams true
+    events "passed", "skipped", "failed"
+  }
+}

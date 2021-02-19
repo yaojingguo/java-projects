@@ -1,0 +1,358 @@
+[2020-04-14 10:59:45,622] INFO ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 1
+	client.dns.lookup = default
+	client.id = bogon
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 1000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 1
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+ (org.apache.kafka.clients.producer.ProducerConfig)
+[2020-04-14 10:59:45,741] DEBUG Added sensor with name bufferpool-wait-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,746] DEBUG Added sensor with name buffer-exhausted-records (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,763] DEBUG Added sensor with name errors (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,773] DEBUG Added sensor with name produce-throttle-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,787] DEBUG Added sensor with name connections-closed: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,788] DEBUG Added sensor with name connections-created: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,788] DEBUG Added sensor with name successful-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,789] DEBUG Added sensor with name successful-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,789] DEBUG Added sensor with name successful-authentication-no-reauth: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,789] DEBUG Added sensor with name failed-authentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,792] DEBUG Added sensor with name failed-reauthentication: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,792] DEBUG Added sensor with name reauthentication-latency: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,792] DEBUG Added sensor with name bytes-sent-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,793] DEBUG Added sensor with name bytes-sent: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,793] DEBUG Added sensor with name bytes-received: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,794] DEBUG Added sensor with name select-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,794] DEBUG Added sensor with name io-time: (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,846] DEBUG Added sensor with name batch-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,846] DEBUG Added sensor with name compression-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,846] DEBUG Added sensor with name queue-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,846] DEBUG Added sensor with name request-time (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,847] DEBUG Added sensor with name records-per-request (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,847] DEBUG Added sensor with name record-retries (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,848] DEBUG Added sensor with name record-size (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,850] DEBUG Added sensor with name batch-split-rate (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,853] DEBUG [Producer clientId=bogon] Starting Kafka producer I/O thread. (org.apache.kafka.clients.producer.internals.Sender)
+[2020-04-14 10:59:45,861] INFO Kafka version: 2.4.0 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 10:59:45,862] INFO Kafka commitId: 77a89fcf8d7fa018 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 10:59:45,863] INFO Kafka startTimeMs: 1586833185853 (org.apache.kafka.common.utils.AppInfoParser)
+[2020-04-14 10:59:45,869] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,871] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,874] DEBUG [Producer clientId=bogon] Kafka producer started (org.apache.kafka.clients.producer.KafkaProducer)
+[2020-04-14 10:59:45,915] DEBUG Added sensor with name node--1.bytes-sent (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,916] DEBUG Added sensor with name node--1.bytes-received (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,916] DEBUG Added sensor with name node--1.latency (org.apache.kafka.common.metrics.Metrics)
+[2020-04-14 10:59:45,925] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:45,929] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,932] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,932] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,989] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,989] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,989] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:45,990] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,990] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:45,990] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,045] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,097] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,097] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,097] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:46,098] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,099] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,099] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,150] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,204] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,255] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,308] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,362] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,362] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,363] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:46,363] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,363] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,363] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,414] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,466] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,519] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,574] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,629] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,680] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,730] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,784] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,836] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,836] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,837] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:46,837] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,837] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,837] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,883] DEBUG [Producer clientId=bogon] Exception occurred during message send: (org.apache.kafka.clients.producer.KafkaProducer)
+org.apache.kafka.common.errors.TimeoutException: Topic apiTopic not present in metadata after 1000 ms.
+[2020-04-14 10:59:46,889] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,941] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:46,995] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,050] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,101] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,152] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,207] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,261] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,314] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,366] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,421] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,471] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,525] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,575] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,628] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,680] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,680] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,681] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:47,681] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,681] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,682] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,733] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,788] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,839] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,893] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,949] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:47,999] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,051] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,103] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,157] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,208] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,259] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,310] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,360] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,412] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,463] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,514] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,565] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,616] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,669] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,721] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,772] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,822] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,873] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,873] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,874] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:48,875] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,875] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,875] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,928] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:48,981] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,031] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,085] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,140] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,190] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,243] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,296] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,347] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,401] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,454] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,505] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,557] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,608] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,662] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,713] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,765] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,815] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,866] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,921] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,921] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,923] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:49,924] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,925] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,925] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:49,977] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,028] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,083] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,137] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,188] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,239] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,291] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,344] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,395] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,445] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,497] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,549] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,604] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,657] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,710] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,761] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,812] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,864] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,918] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:50,972] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,023] DEBUG [Producer clientId=bogon] Initialize connection to node localhost:9092 (id: -1 rack: null) for sending metadata request (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,023] DEBUG [Producer clientId=bogon] Initiating connection to node localhost:9092 (id: -1 rack: null) using address localhost/127.0.0.1 (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,024] DEBUG [Producer clientId=bogon] Connection with localhost/127.0.0.1 disconnected (org.apache.kafka.common.network.Selector)
+java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:216)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:531)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:483)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:540)
+	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:335)
+	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+[2020-04-14 10:59:51,024] DEBUG [Producer clientId=bogon] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,025] WARN [Producer clientId=bogon] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,025] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,080] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,133] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,187] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,242] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,295] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,347] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,398] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,449] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,502] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,552] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,605] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,656] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,708] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,759] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,810] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
+[2020-04-14 10:59:51,862] DEBUG [Producer clientId=bogon] Give up sending metadata request since no node is available (org.apache.kafka.clients.NetworkClient)
