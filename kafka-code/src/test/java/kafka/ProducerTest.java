@@ -18,7 +18,7 @@ import org.junit.Test;
 
 public class ProducerTest {
 
-  public static String topic = "apiTopic";
+  public static String topic = "quickstart-events";
 
   private static Properties config() throws Exception {
     Properties cfg = new Properties();
