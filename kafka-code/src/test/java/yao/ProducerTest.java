@@ -1,4 +1,4 @@
-package kafka;
+package yao;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -98,7 +98,7 @@ public class ProducerTest {
 //    cfg.setProperty("buffer.memory", "26384");
     KafkaProducer<String, String> kp = new KafkaProducer<String, String>(cfg);
     try {
-      ProducerRecord<String, String> record = new ProducerRecord<>(topic, "key", "############");
+      ProducerRecord<String, String> record = new ProducerRecord<>(topic, "key", "133");
       System.out.printf("sending...\n");
       kp.send(record);
       System.out.printf("sent\n");

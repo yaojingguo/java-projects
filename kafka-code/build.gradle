@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'idea'
+apply plugin: 'application'
 
 repositories {
   mavenLocal()
@@ -19,6 +19,12 @@ dependencies {
 }
 
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+application {
+  mainClass = project.hasProperty("main") ? getProperty("main") : "NULL"
+  applicationDefaultJvmArgs = ['-javaagent:/Users/jing/tools/apache-skywalking-apm-bin-es7/agent/skywalking-agent.jar']
+}
+
 
 test {
   useJUnitPlatform()
