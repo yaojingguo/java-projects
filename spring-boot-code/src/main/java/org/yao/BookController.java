@@ -13,4 +13,10 @@ public class BookController {
   public String index() {
     return "Two Cities\nThree nations";
   }
+
+//  @GetMapping("send")
+//  public String send() throws Exception {
+//    KafkaCode.send();
+//    return "kafka message sent";
+//  }
 }
