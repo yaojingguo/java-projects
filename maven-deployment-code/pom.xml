@@ -18,12 +18,25 @@
   </licenses>
 
   <dependencies>
-    <!-- <dependency> -->
-    <!--   <groupId>org.slf4j</groupId> -->
-    <!--   <artifactId>slf4j-log4j12</artifactId> -->
-    <!--   <version>1.7.30</version> -->
-    <!--   <scope>test</scope> -->
-    <!-- </dependency> -->
+    <dependency>
+      <groupId>com.google.truth</groupId>
+      <artifactId>truth</artifactId>
+      <version>1.1.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>iptc-releases</id>
+      <name>IPTC Release Repository</name>
+      <url>http://maven.roombox.xdf.cn/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>iptc-snapshots</id>
+      <name>IPTC Snapshot Repository</name>
+      <url>http://maven.roombox.xdf.cn/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
 

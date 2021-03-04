@@ -2,6 +2,14 @@ package org.yao;
 
 public class HelloWorld {
   public static void main(String[] args) {
-    System.out.println("hello, world");    
+    greet();
+  }
+
+  public static void greet() {
+    System.out.println(sentence());    
+  }
+
+  public static String sentence() {
+    return "hello, world";
   }
 }
