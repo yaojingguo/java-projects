@@ -38,16 +38,6 @@
 			<version>2.2.6.RELEASE</version>
 		</dependency>
 
-		<dependency>
-			<groupId>io.opentelemetry</groupId>
-			<artifactId>opentelemetry-extension-auto-annotations</artifactId>
-			<version>0.8.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.opentelemetry</groupId>
-			<artifactId>opentelemetry-api</artifactId>
-			<version>0.16.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
