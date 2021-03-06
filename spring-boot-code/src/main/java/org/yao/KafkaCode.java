@@ -1,15 +1,18 @@
 package org.yao;
 
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
@@ -17,10 +20,19 @@ public class KafkaCode {
   private static String topic = "two";
 
   public static void main(String[] args) throws Exception {
-    nativeSend();
-    nativeSendCallback();
-    templateSend();
-    templateSendCallback();
+//    nativeSend();
+//    nativeSendCallback();
+//    templateSend();
+//    templateSendCallback();
+
+    Properties props = new Properties();
+    props.put("bootstrap.servers", "localhost:9092");
+    props.put("group.id", "foo");
+    props.put("key.deserializer", StringDeserializer.class.getName());
+    props.put("value.deserializer", StringDeserializer.class.getName());
+    props.put("auto.offset.reset", "earliest");
+    KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
+
     Thread.sleep(20 * 1000);
   }
 
