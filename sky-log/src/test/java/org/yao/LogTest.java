@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 public class LogTest {
-    private Logger logger = LogManager.getLogger(getClass());
+  private Logger logger = LogManager.getLogger(getClass());
 
-    @Test
-    public void testInfo() {
+  @Test
+  public void testInfo() {
     logger.info("a info message");
-    }
+  }
 }

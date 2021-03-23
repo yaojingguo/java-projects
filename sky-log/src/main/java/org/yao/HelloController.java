@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,10 +24,16 @@ public class HelloController {
     }
 
     @GetMapping("/time")
-    public String time() {
+    public String time() throws Exception {
         logger.info("current time");
+        work();
         LocalDate date = LocalDate.now();
         return date.toString();
+    }
+
+    @Trace
+    private void work() throws Exception {
+        Thread.sleep(1000);
     }
 
     @PostMapping("/name")
