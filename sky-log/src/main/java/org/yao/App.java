@@ -1,7 +1,7 @@
 package org.yao;
 
-import org.apache.skywalking.apm.agent.core.context.ContextManager;
-import org.apache.skywalking.apm.agent.core.context.trace.AbstractSpan;
+//import org.apache.skywalking.apm.agent.core.context.ContextManager;
+//import org.apache.skywalking.apm.agent.core.context.trace.AbstractSpan;
 import org.apache.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class App {
   public static void main(String[] args) {
-    prepare();
+//    prepare();
 //    AbstractSpan span = ContextManager.createLocalSpan("prepare");
 //    try {
 //      init();
