@@ -1,16 +1,23 @@
 package org.yao;
 
-public abstract class TransferService {
-  public boolean transfer(long amount) {
-    // connects to the remote service to actually transfer money
-//    System.out.println("transferring");
-    beforeTransfer(amount);
-//    System.out.printf("transferred %d\n", amount);
-    afterTransfer(amount, true);
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class TransferService {
+  private Logger logger = LogManager.getLogger(getClass());
+
+  public boolean transfer(Transfer transfer) {
+    beforeTransfer(transfer.getAmount());
+    // Do the transfer
+    afterTransfer(transfer.getAmount(), true);
     return true;
   }
 
-  abstract protected void beforeTransfer(long amount);
+  protected void beforeTransfer(long amount) {
+    logger.info("preparing to transfer $" + amount + ".");
+  }
 
-  abstract protected void afterTransfer(long amount, boolean outcome);
+  protected void afterTransfer(long amount, boolean outcome) {
+    logger.info("transferred of $" + amount + " result: " + outcome + ".");
+  }
 }
