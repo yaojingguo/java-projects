@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 import static com.google.common.truth.Truth.*;
 
-
 public class LogTest {
   private Logger log = LogManager.getLogger(getClass());
+  private Logger jsonLog = LogManager.getLogger("json.logger");
+  private Logger jsonTemplateLog = LogManager.getLogger("json.template.logger");
 
   @Test
   public void testLogging() {
@@ -27,7 +28,20 @@ public class LogTest {
       Runnable task = new TransferRunnable(tx);
       executor.submit(task);
     }
+    executor.shutdown();
     boolean result = executor.awaitTermination(3, TimeUnit.SECONDS);
     assertThat(result).isTrue();
   }
+
+  @Test
+  public void tetJsonLogging() {
+    log.info("an info message");
+    jsonLog.info("an info message");
+  }
+
+  @Test
+  public void testJsonTemplateLogging() {
+    jsonTemplateLog.info("an info message");
+  }
+
 }

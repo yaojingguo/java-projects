@@ -9,7 +9,7 @@
         </Console>
         <Console name="WithContext" target="SYSTEM_OUT">
             <PatternLayout
-                    pattern="%-4r [%t] %5p %c{1} - %m - tx.id=%X{transaction.id} tx.owner=%X{transaction.owner}%n"/>
+                    pattern="%-4r [%t] %5p %c{1} - %m tx.id=%X{transaction.id} tx.owner=%X{transaction.owner}%n"/>
         </Console>
         <RollingFile name="RollingFile" fileName="${log-path}/rainbow.log"
                      filePattern="${log-path}/rainbow-%d{yyyy-MM-dd}-%i.log">
@@ -22,14 +22,25 @@
             </Policies>
             <DefaultRolloverStrategy max="4"/>
         </RollingFile>
+        <Console name="Json" target="SYSTEM_OUT">
+            <JsonLayout></JsonLayout>
+        </Console>
+        <Console name="JsonTemplate" target="SYSTEM_OUT">
+            <JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
+        </Console>
     </Appenders>
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console"/>
-            <!--  <AppenderRef ref="RollingFile" />  -->
         </Root>
         <Logger name="org.yao.TransferService" level="info" additivity="false">
             <AppenderRef ref="WithContext"/>
+        </Logger>
+        <Logger name="json.logger" level="info" additivity="false">
+            <AppenderRef ref="Json"/>
+        </Logger>
+        <Logger name="json.template.logger" level="info" additivity="false">
+            <AppenderRef ref="JsonTemplate"/>
         </Logger>
     </Loggers>
 </Configuration>
