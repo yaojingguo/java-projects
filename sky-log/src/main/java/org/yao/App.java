@@ -23,8 +23,8 @@ public class App {
     System.out.println("init...");
   }
 
-  @Trace
-  private static void prepare() {
-    System.out.println("preparing...");
-  }
+//  @Trace
+//  private static void prepare() {
+//    System.out.println("preparing...");
+//  }
 }
