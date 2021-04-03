@@ -21,7 +21,6 @@
             <artifactId>byte-buddy</artifactId>
             <version>1.10.19</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.truth</groupId>
             <artifactId>truth</artifactId>
