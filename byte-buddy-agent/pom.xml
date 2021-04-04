@@ -19,7 +19,7 @@
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
-            <version>1.10.19</version>
+            <version>1.10.22</version>
         </dependency>
         <dependency>
             <groupId>com.google.truth</groupId>
@@ -27,12 +27,6 @@
             <version>1.1.2</version>
             <scope>test</scope>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.ow2.asm</groupId>-->
-<!--            <artifactId>asm</artifactId>-->
-<!--            <version>9.0</version>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>
