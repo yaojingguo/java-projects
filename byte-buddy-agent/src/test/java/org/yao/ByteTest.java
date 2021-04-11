@@ -1,18 +1,29 @@
 package org.yao;
 
 import net.bytebuddy.ByteBuddy;
+import net.bytebuddy.ClassFileVersion;
 import net.bytebuddy.NamingStrategy;
+import net.bytebuddy.description.modifier.Visibility;
 import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
+import net.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategy;
+import net.bytebuddy.implementation.DefaultMethodCall;
+import net.bytebuddy.implementation.FieldAccessor;
 import net.bytebuddy.implementation.FixedValue;
+import net.bytebuddy.implementation.MethodCall;
+import net.bytebuddy.implementation.MethodDelegation;
 import org.junit.Test;
 
+import static net.bytebuddy.matcher.ElementMatchers.not;
+
+import java.util.Arrays;
+
 import static com.google.common.truth.Truth.assertThat;
+import static net.bytebuddy.matcher.ElementMatchers.isDeclaredBy;
 import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public class ByteTest {
-
   @Test
   public void testByteBuddy() throws IllegalAccessException, InstantiationException {
     Class<?> dynamicType =
@@ -67,47 +78,106 @@ public class ByteTest {
   }
 
   @Test
-  public void testClassReloading() {
-
-  }
+  public void testClassReloading() {}
 
   @Test
   public void testFieldAndMethod() throws Exception {
-    {
-      String toString = new ByteBuddy()
-          .subclass(Object.class)
-          .name("example.Type")
-          .make()
-          .load(getClass().getClassLoader())
-          .getLoaded()
-          .newInstance() // Java reflection API
-          .toString();
-      System.out.printf("toString: %s\n", toString);
-      System.out.printf("Object.toString: %s\n", new Object().toString());
-    }
+    //    {
+    //      String toString =
+    //          new ByteBuddy()
+    //              .subclass(Object.class)
+    //              .name("example.Type")
+    //              .make()
+    //              .load(getClass().getClassLoader())
+    //              .getLoaded()
+    //              .newInstance() // Java reflection API
+    //              .toString();
+    //      System.out.printf("toString: %s\n", toString);
+    //      System.out.printf("Object.toString: %s\n", new Object().toString());
+    //    }
     {
       String fixedValue = "Hello World!";
-      String toString = new ByteBuddy()
-          .subclass(Object.class)
-          .name("example.Type")
-          .method(named("toString")).intercept(FixedValue.value(fixedValue))
-          .make()
-          .load(getClass().getClassLoader())
-          .getLoaded()
-          .newInstance()
-          .toString();
+      String toString =
+          new ByteBuddy()
+              .subclass(Object.class)
+              .name("example.Type")
+              .method(named("toString"))
+              .intercept(FixedValue.value(fixedValue))
+              .make()
+              .load(getClass().getClassLoader())
+              .getLoaded()
+              .newInstance()
+              .toString();
       assertThat(toString).isEqualTo(fixedValue);
     }
   }
-}
-class Foo {
-  String m() { return "foo"; }
-}
-class Bar {
-  String m() { return "bar"; }
+
+  @Test
+  public void testSuperCall() throws IllegalAccessException, InstantiationException {
+    MemoryDatabase loggingDatabase =
+        new ByteBuddy()
+            .subclass(MemoryDatabase.class)
+            .method(named("load"))
+            .intercept(MethodDelegation.to(LoggerInterceptor.class))
+            .make()
+            .load(MemoryDatabase.class.getClassLoader())
+            .getLoaded()
+            .newInstance();
+    System.out.printf("load: %s\n", loggingDatabase.load("jingguo"));
+    ;
+  }
+
+  @Test
+  public void testDefaultMethod() {
+    new ByteBuddy(ClassFileVersion.JAVA_V8)
+        .subclass(Object.class)
+        .implement(First.class)
+//        .implement(Second.class)
+        .method(named("qux"))
+        .intercept(DefaultMethodCall.prioritize(First.class))
+        .make();
+  }
+
+  @Test
+  public void testUsage() throws IllegalAccessException, InstantiationException {
+    String helloWorld =
+        new ByteBuddy()
+            .subclass(Source.class)
+            .method(named("hello"))
+            .intercept(MethodDelegation.to(Target.class))
+            .make()
+            .load(ByteTest.class.getClassLoader())
+            .getLoaded()
+            .newInstance()
+            .hello("World");
+    System.out.printf("%s\n", helloWorld);
+  }
+
+  @Test
+  public void testSpecificMethod() throws Exception {
+    new ByteBuddy()
+        .subclass(Object.class, ConstructorStrategy.Default.NO_CONSTRUCTORS)
+        .defineConstructor(Visibility.PUBLIC)
+        .withParameters(int.class)
+        .intercept(MethodCall.invoke(Object.class.getDeclaredConstructor()))
+        .make();
+  }
+
+  @Test
+  public void testFieldAccess() {
+    Class<? extends UserType> dynamicUserType = new ByteBuddy()
+        .subclass(UserType.class)
+        .method(not(isDeclaredBy(Object.class)))
+        .intercept(MethodDelegation.toField("interceptor"))
+        .defineField("interceptor", Interceptor.class, Visibility.PRIVATE)
+        .implement(InterceptionAccessor.class).intercept(FieldAccessor.ofBeanProperty())
+        .make()
+        .load(getClass().getClassLoader())
+        .getLoaded();
+  }
 }
 
-class A {
-  void foo(Object o) {}
-  void foo(Integer i) {}
-}
+
+
+
+
