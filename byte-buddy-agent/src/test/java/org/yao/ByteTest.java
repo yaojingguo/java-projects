@@ -132,7 +132,7 @@ public class ByteTest {
     new ByteBuddy(ClassFileVersion.JAVA_V8)
         .subclass(Object.class)
         .implement(First.class)
-//        .implement(Second.class)
+        //        .implement(Second.class)
         .method(named("qux"))
         .intercept(DefaultMethodCall.prioritize(First.class))
         .make();
@@ -164,20 +164,31 @@ public class ByteTest {
   }
 
   @Test
-  public void testFieldAccess() {
-    Class<? extends UserType> dynamicUserType = new ByteBuddy()
-        .subclass(UserType.class)
-        .method(not(isDeclaredBy(Object.class)))
-        .intercept(MethodDelegation.toField("interceptor"))
-        .defineField("interceptor", Interceptor.class, Visibility.PRIVATE)
-        .implement(InterceptionAccessor.class).intercept(FieldAccessor.ofBeanProperty())
-        .make()
-        .load(getClass().getClassLoader())
-        .getLoaded();
+  public void testFieldAccess() throws Exception {
+    Class<? extends UserType> dynamicUserType =
+        new ByteBuddy()
+            .subclass(UserType.class)
+            .method(not(isDeclaredBy(Object.class)))
+            .intercept(MethodDelegation.toField("interceptor"))
+            .defineField("interceptor", Interceptor.class, Visibility.PRIVATE)
+            .implement(InterceptionAccessor.class)
+            .intercept(FieldAccessor.ofBeanProperty())
+            .make()
+            .load(getClass().getClassLoader())
+            .getLoaded();
+
+    InstanceCreator factory =
+        new ByteBuddy()
+            .subclass(InstanceCreator.class)
+            .method(not(isDeclaredBy(Object.class)))
+            .intercept(MethodDelegation.toConstructor(dynamicUserType))
+            .make()
+            .load(dynamicUserType.getClassLoader())
+            .getLoaded()
+            .newInstance();
+
+    UserType userType = (UserType) factory.makeInstance();
+    ((InterceptionAccessor) userType).setInterceptor(new HelloWorldInterceptor());
+    System.out.printf("result: %s\n", userType.doSomething());
   }
 }
-
-
-
-
-
