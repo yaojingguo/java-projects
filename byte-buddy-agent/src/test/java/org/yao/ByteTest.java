@@ -13,7 +13,12 @@ import net.bytebuddy.implementation.FieldAccessor;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.implementation.MethodCall;
 import net.bytebuddy.implementation.MethodDelegation;
+import net.bytebuddy.implementation.SuperMethodCall;
+import net.bytebuddy.implementation.bytecode.assign.Assigner;
+import net.bytebuddy.implementation.bytecode.assign.primitive.PrimitiveTypeAwareAssigner;
 import org.junit.Test;
+import org.yao.custom.StringValueBinder;
+import org.yao.custom.ToStringInterceptor;
 
 import static net.bytebuddy.matcher.ElementMatchers.not;
 
@@ -190,5 +195,48 @@ public class ByteTest {
     UserType userType = (UserType) factory.makeInstance();
     ((InterceptionAccessor) userType).setInterceptor(new HelloWorldInterceptor());
     System.out.printf("result: %s\n", userType.doSomething());
+  }
+
+  @Test
+  public void testAnnotation() {
+    new ByteBuddy().subclass(Object.class).annotateType(new RuntimeDefinitionImpl()).make();
+
+    new ByteBuddy()
+        .subclass(Object.class)
+        .annotateType(new RuntimeDefinitionImpl())
+        .method(named("toString"))
+        .intercept(SuperMethodCall.INSTANCE)
+        .annotateMethod(new RuntimeDefinitionImpl())
+        .defineField("foo", Object.class)
+        .annotateField(new RuntimeDefinitionImpl());
+  }
+
+  @Test
+  public void testAssigner() {
+    new ByteBuddy()
+        .subclass(Object.class)
+        .method(named("toString"))
+        .intercept(
+            FixedValue.value(42)
+                .withAssigner(
+                    new PrimitiveTypeAwareAssigner(ToStringAssigner.INSTANCE),
+                    Assigner.Typing.STATIC))
+        .make();
+  }
+
+  @Test
+  public void testBinder() throws Exception {
+    Object o =
+    new ByteBuddy()
+        .subclass(Object.class)
+        .method(named("toString"))
+        .intercept(MethodDelegation.withDefaultConfiguration()
+            .withBinders(StringValueBinder.INSTANCE)
+            .to(ToStringInterceptor.class))
+        .make()
+        .load(ByteTest.class.getClassLoader())
+        .getLoaded()
+        .newInstance();
+    System.out.printf("toString: %s\n", o);
   }
 }
