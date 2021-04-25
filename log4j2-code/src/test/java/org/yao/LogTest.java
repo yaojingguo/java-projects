@@ -2,6 +2,7 @@ package org.yao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
@@ -21,7 +22,7 @@ public class LogTest {
   }
 
   @Test
-  public void testContext() throws Throwable {
+  public void testTransfer() throws Throwable {
     ExecutorService executor = Executors.newFixedThreadPool(3);
     for (int i = 1; i <= 3; i++) {
       Transfer tx = new Transfer("tid-" + i, "jingguo", "xiaoyu", i);
@@ -34,9 +35,41 @@ public class LogTest {
   }
 
   @Test
+  public void testContextStack() {
+    ThreadStackUsage.top();
+  }
+
+  @Test
+  public void testContextMap() {
+    ThreadMapUsage.top();
+  }
+
+  @Test
   public void tetJsonLogging() {
     log.info("an info message");
     jsonLog.info("an info message");
+  }
+
+  @Test
+  public void testLogException() {
+    try {
+      a();
+    } catch (Throwable t) {
+      log.error("failed to run a()", t);
+    }
+  }
+
+
+  private void a() {
+    b();
+  }
+
+  private void b() {
+    c();
+  }
+
+  private void c() {
+    throw new RuntimeException("exception message");
   }
 
   @Test

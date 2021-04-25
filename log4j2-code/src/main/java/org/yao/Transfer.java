@@ -1,5 +1,8 @@
 package org.yao;
 
+/**
+ * POJO
+ */
 public class Transfer {
   private String transactionId;
   private String sender;
