@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Premain-Class: org.yao.MyAgent
+Premain-Class: org.yao.SimpleAgent
 Can-Redefine-Classes: true
