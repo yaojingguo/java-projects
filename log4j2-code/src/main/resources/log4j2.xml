@@ -2,6 +2,7 @@
 <Configuration status="info">
     <Properties>
         <Property name="log-path">./logs</Property>
+        <Property name="log4j2.messageFactory">org.yao.StructuredMessageFactory</Property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
