@@ -17,5 +17,4 @@ public class MyRunner implements CommandLineRunner {
   public void run(String... args) throws Exception {
     System.out.printf("no: %d, name : %s\n", no, name);
   }
-
 }
