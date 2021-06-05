@@ -40,10 +40,10 @@ public class KafkaMain {
   }
 
   public static void main(String[] args) throws Exception {
-    KafkaThread t = new KafkaThread();
-    t.start();
+//    KafkaThread t = new KafkaThread();
+//    t.start();
     sendAndPoll("9092", "clientId1", "groupId1", topic1);
-    t.join();
+//    t.join();
   }
 
   public static void sendAndPoll(String portNumber, String clientId, String groupId, String topic)

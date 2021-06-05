@@ -6,7 +6,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 public class Utils {
-  public static Properties producerConfig(String clientId) throws Exception {
+  public static Properties producerConfig(String clientId) {
     Properties cfg = new Properties();
     cfg.put("client.id", clientId);
     cfg.put("bootstrap.servers", "localhost:9092");
@@ -15,7 +15,7 @@ public class Utils {
     return cfg;
   }
 
-  public static KafkaProducer<String, String> createProducer(String clientId) throws Exception {
+  public static KafkaProducer<String, String> createProducer(String clientId) {
     return new KafkaProducer<>(producerConfig(clientId));
   }
 
