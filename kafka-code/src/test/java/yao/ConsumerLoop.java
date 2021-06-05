@@ -5,31 +5,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
-import org.apache.kafka.common.serialization.StringDeserializer;
 
 public class ConsumerLoop implements Runnable {
   private final KafkaConsumer<String, String> consumer;
   private final List<String> topics;
-  private final int id;
+  private final String id;
 
-  public ConsumerLoop(int id, String groupId, List<String> topics) {
+  public ConsumerLoop(String id, String groupId, List<String> topics) {
     this.id = id;
     this.topics = topics;
-    Properties props = new Properties();
-    props.put("bootstrap.servers", "knode-1:9092");
-    props.put("group.id", groupId);
-    props.put("key.deserializer", StringDeserializer.class.getName());
-    props.put("value.deserializer", StringDeserializer.class.getName());
-    this.consumer = new KafkaConsumer<>(props);
+    this.consumer = Utils.createConsumer(groupId, id);
   }
 
   @Override
@@ -65,7 +57,7 @@ public class ConsumerLoop implements Runnable {
 
     final List<ConsumerLoop> consumers = new ArrayList<>();
     for (int i = 0; i < numConsumers; i++) {
-      ConsumerLoop consumer = new ConsumerLoop(i, groupId, topics);
+      ConsumerLoop consumer = new ConsumerLoop(String.valueOf(i), groupId, topics);
       consumers.add(consumer);
       executor.submit(consumer);
     }

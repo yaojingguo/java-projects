@@ -21,17 +21,6 @@ public class ConsumerTest {
   
   private static volatile boolean running = true;
 
-  private static KafkaConsumer<String, String> createConsumer() {
-    Properties props = new Properties();
-    props.put("bootstrap.servers", "localhost:9092");
-    props.put("group.id", "foo");
-    props.put("key.deserializer", StringDeserializer.class.getName());
-    props.put("value.deserializer", StringDeserializer.class.getName());
-    props.put("auto.offset.reset", "earliest");
-    return new KafkaConsumer<>(props);
-  }
-
-  
   private static void verifyAutoCommit() {
     Thread flager = new Thread() {
       @Test
@@ -46,7 +35,7 @@ public class ConsumerTest {
     };
     flager.start();
 
-    try (KafkaConsumer<String, String> consumer = createConsumer();) {
+    try (KafkaConsumer<String, String> consumer = Utils.createConsumer("group-1", "1");) {
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
       while (running) {
         ConsumerRecords<String, String> records = consumer.poll(1000);
@@ -66,7 +55,7 @@ public class ConsumerTest {
 
   @Test
   public void testWakeup() {
-    try (KafkaConsumer<String, String> consumer = createConsumer();) {
+    try (KafkaConsumer<String, String> consumer = Utils.createConsumer("group-2", "1");) {
       Thread killer = new Thread() {
         @Override
         public void run() {
