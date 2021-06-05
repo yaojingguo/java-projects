@@ -23,8 +23,6 @@ public class ProducerTest {
   private static Properties config() throws Exception {
     Properties cfg = new Properties();
     cfg.put("client.id", InetAddress.getLocalHost().getHostName());
-    // 10.201.60.78
-//    cfg.put("bootstrap.servers", "10.201.60.78:9092");
     cfg.put("bootstrap.servers", "localhost:9092");
     cfg.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     cfg.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");

@@ -1,5 +1,13 @@
 package org.yao;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.Properties;
+import java.util.concurrent.Future;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -7,12 +15,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringDeserializer;
-
-import java.net.InetAddress;
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.Properties;
-import java.util.concurrent.Future;
 
 public class KafkaMain {
   public static String topic1 = "one";
@@ -44,32 +46,36 @@ public class KafkaMain {
     t.join();
   }
 
-  public static void sendAndPoll(String portNumber, String clientId, String groupId, String topic) throws Exception {
-    KafkaProducer<String, String> kp = new KafkaProducer<String, String>(producerConfig(portNumber, clientId));
+  public static void sendAndPoll(String portNumber, String clientId, String groupId, String topic)
+      throws Exception {
+    KafkaProducer<String, String> kp =
+        new KafkaProducer<String, String>(producerConfig(portNumber, clientId));
     try {
       ProducerRecord<String, String> record = new ProducerRecord<>(topic, "key", "III");
-      System.out.printf(Thread.currentThread().getName()  + ":sending...\n");
+      System.out.printf(Thread.currentThread().getName() + ":sending...\n");
       Future<RecordMetadata> future = kp.send(record);
       future.get();
-      System.out.printf(Thread.currentThread().getName()  + ":sent\n");
+      System.out.printf(Thread.currentThread().getName() + ":sent\n");
     } finally {
       kp.close();
     }
 
-    KafkaConsumer<String, String> kc = new KafkaConsumer<String, String>(consumerConfig(portNumber, groupId));
+    KafkaConsumer<String, String> kc =
+        new KafkaConsumer<String, String>(consumerConfig(portNumber, groupId));
     kc.subscribe(Arrays.asList(topic));
 
     while (true) {
       ConsumerRecords<String, String> records = kc.poll(Duration.ofSeconds(5));
       int count = records.count();
-      System.out.printf(Thread.currentThread().getName()  + ": polled %d records\n", count);
+      System.out.printf(Thread.currentThread().getName() + ": polled %d records\n", count);
       if (count == 0) {
-        System.out.printf(Thread.currentThread().getName()  + ":exit the loop");
+        System.out.printf(Thread.currentThread().getName() + ":exit the loop");
         break;
       }
 
       for (ConsumerRecord<String, String> rec : records) {
-        System.out.printf(Thread.currentThread().getName()  + ":key: %s, key: %s\n", rec.key(), rec.value());
+        System.out.printf(
+            Thread.currentThread().getName() + ":key: %s, key: %s\n", rec.key(), rec.value());
       }
     }
     kc.close();
@@ -85,5 +91,4 @@ public class KafkaMain {
       }
     }
   }
-
 }
