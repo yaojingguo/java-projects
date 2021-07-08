@@ -11,14 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-	private Logger log = LogManager.getLogger();
+  private Logger log = LogManager.getLogger();
 
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
+  private static final String template = "Hello, %s!";
+  private final AtomicLong counter = new AtomicLong();
 
-	@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		log.info("running greeting API", "name", name);
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}
+  @GetMapping("/greeting")
+  public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name)
+      throws Throwable {
+    log.info("running greeting API", "name", name);
+    RedisCode.accessRedis();
+    RedisCode.accessRedis();
+    return new Greeting(counter.incrementAndGet(), String.format(template, name));
+  }
 }

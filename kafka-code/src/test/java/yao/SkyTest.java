@@ -21,7 +21,7 @@ public class SkyTest {
   private static final String topic = "one";
   private static OkHttpClient client = new OkHttpClient();
 
-  private static void http() throws IOException {
+  public static void http() throws IOException {
     String url = "https://httpbin.org/get";
     Request request = new Request.Builder().url(url).build();
     try (Response response = client.newCall(request).execute()) {
@@ -66,6 +66,14 @@ public class SkyTest {
 
   public static void main(String[] args) throws Exception {
 //    testSend();
-    testReceive();
+//    testReceive();
+
+    String url = "http://localhost:8099/greeting";
+    Request request = new Request.Builder().url(url).build();
+    try (Response response = client.newCall(request).execute()) {
+      String body = response.body().string();
+      System.out.printf("body: %s\n", body);
+    }
+    Thread.sleep(10 * 1000);
   }
 }
