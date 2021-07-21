@@ -20,8 +20,14 @@ public class GreetingController {
   public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name)
       throws Throwable {
     log.info("running greeting API", "name", name);
-    RedisCode.accessRedis();
-    RedisCode.accessRedis();
     return new Greeting(counter.incrementAndGet(), String.format(template, name));
+  }
+
+  @GetMapping("/redis")
+  public String redis() throws Throwable {
+    log.info("running Redis API");
+    RedisCode.accessRedis();
+    RedisCode.accessRedis();
+    return "Redis is Ok";
   }
 }
