@@ -62,6 +62,13 @@
                 <version>3.2.4</version>
                 <executions>
                     <execution>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>org.yao.Main</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
