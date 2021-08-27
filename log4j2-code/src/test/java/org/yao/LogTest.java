@@ -2,14 +2,15 @@ package org.yao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static com.google.common.truth.Truth.*;
+import static com.google.common.truth.Truth.assertThat;
 
 public class LogTest {
   private Logger log = LogManager.getLogger(getClass());
@@ -19,6 +20,11 @@ public class LogTest {
   @Test
   public void testLogging() {
     log.info("an info level message");
+    doWork();
+  }
+
+  private void doWork() {
+    log.info("working");
   }
 
   @Test
@@ -46,8 +52,8 @@ public class LogTest {
 
   @Test
   public void tetJsonLogging() {
-    log.info("an info message");
-    jsonLog.info("an info message");
+//    log.info("an info message");
+    jsonLog.info("entered classroom cid=10 uid=20");
   }
 
   @Test
@@ -74,7 +80,14 @@ public class LogTest {
 
   @Test
   public void testJsonTemplateLogging() {
-    jsonTemplateLog.info("an info message");
+    jsonTemplateLog.info("entered classroom");
+//    jsonTemplateLog.error("error message", new Throwable());
+
+//    Map map = new HashMap();
+//    map.put("msg", "enterec classroom");
+//    map.put("cid", "10");
+//    map.put("uid", 1);
+//    jsonTemplateLog.info(map);
   }
 
 }

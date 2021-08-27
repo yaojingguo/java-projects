@@ -6,7 +6,7 @@
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c{2}: %m%n"/>
+            <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c{2}:-%M %m%n"/>
         </Console>
         <Console name="WithContextMap" target="SYSTEM_OUT">
             <PatternLayout
@@ -32,10 +32,10 @@
             <DefaultRolloverStrategy max="4"/>
         </RollingFile>
         <Console name="Json" target="SYSTEM_OUT">
-            <JsonLayout></JsonLayout>
+            <JsonLayout complete="false"></JsonLayout>
         </Console>
         <Console name="JsonTemplate" target="SYSTEM_OUT">
-            <JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:jsonLayout.json"/>
         </Console>
     </Appenders>
     <Loggers>
