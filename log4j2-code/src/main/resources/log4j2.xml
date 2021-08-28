@@ -31,6 +31,17 @@
             </Policies>
             <DefaultRolloverStrategy max="4"/>
         </RollingFile>
+        <RollingFile name="JsonRollingFile" fileName="${log-path}/rainbow.log"
+                     filePattern="${log-path}/rainbow-%d{yyyy-MM-dd}-%i.log">
+            <JsonTemplateLayout eventTemplateUri="classpath:jsonLayout.json"
+                                stackTraceElementTemplateUri="classpath:s.json"
+                                locationInfoEnabled="false"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="4"/>
+        </RollingFile>
         <Console name="Json" target="SYSTEM_OUT">
             <JsonLayout complete="false"></JsonLayout>
         </Console>
@@ -61,6 +72,7 @@
         </Logger>
         <Logger name="json.template.logger" level="info" additivity="false">
             <AppenderRef ref="JsonTemplate"/>
+            <AppenderRef ref="JsonRollingFile"/>
         </Logger>
     </Loggers>
 </Configuration>
