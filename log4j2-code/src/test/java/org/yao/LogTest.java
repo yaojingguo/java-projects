@@ -1,9 +1,14 @@
 package org.yao;
 
+import com.fasterxml.jackson.core.io.JsonStringEncoder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -80,14 +85,15 @@ public class LogTest {
 
   @Test
   public void testJsonTemplateLogging() {
-    jsonTemplateLog.info("entered classroom");
-//    jsonTemplateLog.error("error message", new Throwable());
+        ThreadContext.put("name", "xiaoyu");
+        jsonTemplateLog.info("entered classroom");
+    jsonTemplateLog.error("error message", new Throwable("bad thing"));
 
-//    Map map = new HashMap();
-//    map.put("msg", "enterec classroom");
-//    map.put("cid", "10");
-//    map.put("uid", 1);
-//    jsonTemplateLog.info(map);
+//    new Throwable().printStackTrace();
+    //    Map map = new HashMap();
+    //    map.put("msg", "enterec classroom");
+    //    map.put("cid", "10");
+    //    map.put("uid", 1);
+    //    jsonTemplateLog.info(map);
   }
-
 }

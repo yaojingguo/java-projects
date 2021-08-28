@@ -35,7 +35,9 @@
             <JsonLayout complete="false"></JsonLayout>
         </Console>
         <Console name="JsonTemplate" target="SYSTEM_OUT">
-            <JsonTemplateLayout eventTemplateUri="classpath:jsonLayout.json"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:jsonLayout.json"
+                                stackTraceElementTemplateUri="classpath:s.json"
+                                locationInfoEnabled="false"/>
         </Console>
     </Appenders>
     <Loggers>
