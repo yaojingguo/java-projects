@@ -2,7 +2,7 @@
 <Configuration status="info">
     <Properties>
         <Property name="log-path">./logs</Property>
-        <Property name="log4j2.messageFactory">org.yao.StructuredMessageFactory</Property>
+<!--        <Property name="log4j2.messageFactory">org.yao.StructuredMessageFactory</Property>-->
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -47,7 +47,6 @@
         </Console>
         <Console name="JsonTemplate" target="SYSTEM_OUT">
             <JsonTemplateLayout eventTemplateUri="classpath:jsonLayout.json"
-                                stackTraceElementTemplateUri="classpath:s.json"
                                 locationInfoEnabled="false"/>
         </Console>
     </Appenders>

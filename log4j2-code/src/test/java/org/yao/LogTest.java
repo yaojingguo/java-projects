@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import static com.google.common.truth.Truth.assertThat;
 
 public class LogTest {
-  private Logger log = LogManager.getLogger("simple");
+  private Logger log = LogManager.getLogger();
   private Logger jsonLog = LogManager.getLogger("json.logger");
   private Logger jsonTemplateLog = LogManager.getLogger("json.template.logger");
 
