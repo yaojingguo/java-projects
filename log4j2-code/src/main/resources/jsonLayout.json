@@ -24,7 +24,7 @@
   },
   "msg": {
     "$resolver": "message",
-    "stringified": true
+    "stringified": false
   },
   "ex": {
     "exception_class": {

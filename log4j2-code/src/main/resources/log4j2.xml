@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="info">
+<Configuration status="info" strict="true">
     <Properties>
         <Property name="log-path">./logs</Property>
     </Properties>
     <Appenders>
+<!--        <Appender type="Console" name="WithMarker">-->
+<!--            <Layout type="PatternLayout" pattern="%d{ISO8601} %-5p [%t] %c{2}:=%M %m%n"/>-->
+<!--&lt;!&ndash;            <Filters>&ndash;&gt;-->
+<!--&lt;!&ndash;                <Filter type="MarkerFilter" marker="MY_MARKER" onMatch="ACCEPT"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </Filters>&ndash;&gt;-->
+<!--        </Appender>-->
+        <Appender type="Console" name="WithMarker">
+            <Layout type="PatternLayout" pattern="%d{ISO8601} %-5p [%t] %c{2}:=%M %m%n"/>
+<!--            <Filters>-->
+<!--                <Filter type="MarkerFilter" marker="MY_MARKER" onMatch="ACCEPT"/>-->
+<!--            </Filters>-->
+        </Appender>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c{2}:=%M %m%n"/>
         </Console>
@@ -73,6 +85,9 @@
         <Logger name="json.template.logger" level="info" additivity="false">
             <AppenderRef ref="JsonTemplate"/>
             <AppenderRef ref="JsonRollingFile"/>
+        </Logger>
+        <Logger name="marker.logger" level="info" additivity="false">
+            <AppenderRef ref="WithMarker"/>
         </Logger>
     </Loggers>
 </Configuration>
