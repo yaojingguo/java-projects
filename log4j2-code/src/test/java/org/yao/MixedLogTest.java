@@ -10,6 +10,7 @@ import org.junit.Test;
 public class MixedLogTest {
   // Asynchronous logger
   private Logger log = LogManager.getLogger(getClass());
+
   // Root synchronous logger
   private Logger log2 = LogManager.getLogger("other.logger");
 
