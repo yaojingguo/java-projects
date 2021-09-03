@@ -1,14 +1,9 @@
 package org.yao;
 
-import com.fasterxml.jackson.core.io.JsonStringEncoder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -18,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import static com.google.common.truth.Truth.assertThat;
 
 public class LogTest {
-  private Logger log = LogManager.getLogger(getClass());
+  private Logger log = LogManager.getLogger("simple");
   private Logger jsonLog = LogManager.getLogger("json.logger");
   private Logger jsonTemplateLog = LogManager.getLogger("json.template.logger");
 
@@ -57,7 +52,7 @@ public class LogTest {
 
   @Test
   public void tetJsonLogging() {
-//    log.info("an info message");
+    //    log.info("an info message");
     jsonLog.info("entered classroom cid=10 uid=20");
   }
 
@@ -69,7 +64,6 @@ public class LogTest {
       log.error("failed to run a()", t);
     }
   }
-
 
   private void a() {
     b();
@@ -85,11 +79,19 @@ public class LogTest {
 
   @Test
   public void testJsonTemplateLogging() {
-        ThreadContext.put("name", "xiaoyu");
-        jsonTemplateLog.info("entered classroom");
-    jsonTemplateLog.error("error message", new Throwable("bad thing"));
+//    ThreadContext.put("name", "xiaoyu");
+//    jsonTemplateLog.info("entered classroom");
 
-//    new Throwable().printStackTrace();
+//    Map map = new HashMap();
+//    map.put("no", 1);
+//    map.put("name", "XDF");
+//    jsonTemplateLog.info(map);
+
+    log.info("{} entered classroom {}", 20, 10);
+    jsonTemplateLog.info("{} entered classroom {}", 20, 10, "a c", "x\"y");
+//    jsonTemplateLog.error("error message", new Throwable("bad thing"));
+
+    //    new Throwable().printStackTrace();
     //    Map map = new HashMap();
     //    map.put("msg", "enterec classroom");
     //    map.put("cid", "10");
