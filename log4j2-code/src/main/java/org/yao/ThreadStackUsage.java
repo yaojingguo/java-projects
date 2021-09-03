@@ -37,4 +37,8 @@ public class ThreadStackUsage {
     log.info("c message");
     ThreadContext.pop();
   }
+
+  public static void main(String[] args) {
+    top();
+  }
 }

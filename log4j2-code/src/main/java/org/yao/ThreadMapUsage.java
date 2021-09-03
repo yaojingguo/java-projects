@@ -9,6 +9,7 @@ public class ThreadMapUsage {
 
   public static void top() {
     ThreadContext.put("id", "1");
+    ThreadContext.put("name", "little rain");
     log.info("top message");
     ThreadContext.put("id", "2");
     log.info("top message");
