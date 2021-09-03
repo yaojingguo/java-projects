@@ -85,9 +85,10 @@ public class LogTest {
 //    map.put("name", "XDF");
 //    jsonTemplateLog.info(map);
 
+    log.info("entered classroom", 20, 10);
     log.info("{} entered classroom {}", 20, 10);
     jsonTemplateLog.info("{} entered classroom {}", 20, 10, "a c", "x\"y");
-//    jsonTemplateLog.error("error message", new Throwable("bad thing"));
+    jsonTemplateLog.error("error message", new Throwable("bad thing"));
 
     //    new Throwable().printStackTrace();
     //    Map map = new HashMap();
