@@ -89,15 +89,16 @@ public class LogTest {
 //    jsonTemplateLog.info("entered classroom");
 
     Map map = new HashMap();
-    map.put("msg", "entered \"classroom");
+    map.put("msg", "entered classroom");
     map.put("cid", 10);
     map.put("uid", 20);
-    jsonTemplateLog.info(map);
-
-    jsonTemplateLog.info(new Person(8, "yue"));
-
+    //    jsonTemplateLog.info(map);
+    //
+    //    jsonTemplateLog.info(new Person(8, "yue"));
+    //
+    System.out.println(map);
     jsonTemplateLog.info(new ObjectMessage(map));
-    log.info(new ObjectMessage(map));
+//    log.info(new ObjectMessage(map));
 
 //    log.info("entered classroom", 20, 10);
 //    log.info("{} entered classroom {}", 20, 10);

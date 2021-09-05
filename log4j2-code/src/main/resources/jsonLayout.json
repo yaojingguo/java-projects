@@ -24,24 +24,13 @@
   },
   "msg": {
     "$resolver": "message",
-    "stringified": false
+    "stringified": true
   },
   "ex": {
-    "exception_class": {
-      "$resolver": "exception",
-      "field": "className"
-    },
-    "exception_message": {
-      "$resolver": "exception",
-      "field": "message",
+    "$resolver": "exception",
+    "field": "stackTrace",
+    "stackTrace": {
       "stringified": true
-    },
-    "stacktrace": {
-      "$resolver": "exception",
-      "field": "stackTrace",
-      "stackTrace": {
-        "stringified": true
-      }
     }
   }
 }
