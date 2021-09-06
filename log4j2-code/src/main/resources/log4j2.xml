@@ -78,6 +78,7 @@
         </Logger>
         <Logger name="org.yao.ThreadMapUsage" level="info" additivity="false">
             <AppenderRef ref="WithContextAll"/>
+            <AppenderRef ref="JsonTemplate"/>
         </Logger>
         <Logger name="json.logger" level="info" additivity="false">
             <AppenderRef ref="Json"/>

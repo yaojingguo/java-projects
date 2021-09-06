@@ -26,6 +26,10 @@
     "$resolver": "message",
     "stringified": true
   },
+  "yao": {
+    "$resolver": "mdc",
+    "key":"name"
+  },
   "ex": {
     "$resolver": "exception",
     "field": "stackTrace",

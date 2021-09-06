@@ -26,6 +26,8 @@ public class LogTest {
   @Test
   public void testLogging() {
     log.info("an info level message");
+    log.info("{} entered classroom {}", 20, 10);
+    log.info("message", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     doWork();
   }
 

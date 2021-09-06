@@ -23,6 +23,7 @@
     <artifactId>flogger-system-backend</artifactId>
     <version>0.6</version>
   </dependency>
+
   <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
