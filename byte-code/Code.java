@@ -66,7 +66,25 @@ public class Code {
       default: return -1;
     }
   }
+  
+  void catchOne() {
+    try {
+      tryItOut();
+    } catch (Exception e) {
+      handleExec(e);
+    }
+  }
+
+  void tryItOut() throws Exception {
+    throw new Exception();
+  }
+
+  void handleExec(Exception e) {
+    e.printStackTrace();
+  }
+
 }
+
 
 class Near {
   int it;
