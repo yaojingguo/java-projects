@@ -1,3 +1,7 @@
+/**
+ * Code for <a href="https://www.youtube.com/watch?v=e2zmmkc5xI0">Java Bytecode
+ * Crash Course</a>.
+ */
 public class Code {
   void spin() {
     int i;
@@ -82,7 +86,6 @@ public class Code {
   void handleExec(Exception e) {
     e.printStackTrace();
   }
-
 }
 
 
