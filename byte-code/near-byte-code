@@ -1,0 +1,87 @@
+Classfile /Users/jing/code/github/my/java-projects/byte-code/Near.class
+  Last modified 2021年9月10日; size 394 bytes
+  MD5 checksum 59778c7ae62b015ebffd6c714c3b1858
+  Compiled from "Code.java"
+class Near
+  minor version: 0
+  major version: 55
+  flags: (0x0020) ACC_SUPER
+  this_class: #4                          // Near
+  super_class: #5                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 4, attributes: 1
+Constant pool:
+   #1 = Methodref          #5.#19         // java/lang/Object."<init>":()V
+   #2 = Methodref          #4.#20         // Near.getIt:()I
+   #3 = Fieldref           #4.#21         // Near.it:I
+   #4 = Class              #22            // Near
+   #5 = Class              #23            // java/lang/Object
+   #6 = Utf8               it
+   #7 = Utf8               I
+   #8 = Utf8               <init>
+   #9 = Utf8               ()V
+  #10 = Utf8               Code
+  #11 = Utf8               LineNumberTable
+  #12 = Utf8               getItNear
+  #13 = Utf8               ()I
+  #14 = Utf8               getIt
+  #15 = Utf8               setIt
+  #16 = Utf8               (I)V
+  #17 = Utf8               SourceFile
+  #18 = Utf8               Code.java
+  #19 = NameAndType        #8:#9          // "<init>":()V
+  #20 = NameAndType        #14:#13        // getIt:()I
+  #21 = NameAndType        #6:#7          // it:I
+  #22 = Utf8               Near
+  #23 = Utf8               java/lang/Object
+{
+  int it;
+    descriptor: I
+    flags: (0x0000)
+
+  Near();
+    descriptor: ()V
+    flags: (0x0000)
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 62: 0
+
+  public int getItNear();
+    descriptor: ()I
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #2                  // Method getIt:()I
+         4: ireturn
+      LineNumberTable:
+        line 66: 0
+
+  private int getIt();
+    descriptor: ()I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #3                  // Field it:I
+         4: ireturn
+      LineNumberTable:
+        line 70: 0
+
+  void setIt(int);
+    descriptor: (I)V
+    flags: (0x0000)
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: putfield      #3                  // Field it:I
+         5: return
+      LineNumberTable:
+        line 74: 0
+        line 75: 5
+}
+SourceFile: "Code.java"
