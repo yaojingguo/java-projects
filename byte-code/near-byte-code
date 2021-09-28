@@ -1,6 +1,6 @@
 Classfile /Users/jing/code/github/my/java-projects/byte-code/Near.class
   Last modified 2021年9月10日; size 394 bytes
-  MD5 checksum df9b4305c460e8156999340907e9a0ba
+  MD5 checksum 077d39443148bfe6b52c143b06443197
   Compiled from "Code.java"
 class Near
   minor version: 0
@@ -47,7 +47,7 @@ Constant pool:
          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
-        line 89: 0
+        line 92: 0
 
   public int getItNear();
     descriptor: ()I
@@ -58,7 +58,7 @@ Constant pool:
          1: invokevirtual #2                  // Method getIt:()I
          4: ireturn
       LineNumberTable:
-        line 93: 0
+        line 96: 0
 
   private int getIt();
     descriptor: ()I
@@ -69,7 +69,7 @@ Constant pool:
          1: getfield      #3                  // Field it:I
          4: ireturn
       LineNumberTable:
-        line 97: 0
+        line 100: 0
 
   void setIt(int);
     descriptor: (I)V
@@ -81,7 +81,7 @@ Constant pool:
          2: putfield      #3                  // Field it:I
          5: return
       LineNumberTable:
-        line 101: 0
-        line 102: 5
+        line 104: 0
+        line 105: 5
 }
 SourceFile: "Code.java"

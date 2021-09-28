@@ -1,6 +1,6 @@
 Classfile /Users/jing/code/github/my/java-projects/byte-code/Code.class
   Last modified 2021年9月10日; size 1490 bytes
-  MD5 checksum 770411125fa3d47b765116c51a62a5ae
+  MD5 checksum f3146d83eb26f0e120636c27a827e54f
   Compiled from "Code.java"
 public class Code
   minor version: 0
@@ -70,7 +70,7 @@ Constant pool:
          1: invokespecial #1                  // Method java/lang/Object."<init>":()V
          4: return
       LineNumberTable:
-        line 1: 0
+        line 5: 0
 
   void spin();
     descriptor: ()V
@@ -86,8 +86,8 @@ Constant pool:
         11: goto          2
         14: return
       LineNumberTable:
-        line 4: 0
-        line 7: 14
+        line 8: 0
+        line 11: 14
       StackMapTable: number_of_entries = 2
         frame_type = 252 /* append */
           offset_delta = 2
@@ -112,8 +112,8 @@ Constant pool:
         13: goto          2
         16: return
       LineNumberTable:
-        line 11: 0
-        line 14: 16
+        line 15: 0
+        line 18: 16
       StackMapTable: number_of_entries = 2
         frame_type = 252 /* append */
           offset_delta = 2
@@ -138,8 +138,8 @@ Constant pool:
         14: goto          2
         17: return
       LineNumberTable:
-        line 18: 0
-        line 21: 17
+        line 22: 0
+        line 25: 17
       StackMapTable: number_of_entries = 2
         frame_type = 252 /* append */
           offset_delta = 2
@@ -163,12 +163,12 @@ Constant pool:
         16: dstore        7
         18: return
       LineNumberTable:
-        line 24: 0
-        line 25: 3
-        line 26: 6
-        line 27: 8
-        line 28: 13
-        line 30: 18
+        line 28: 0
+        line 29: 3
+        line 30: 6
+        line 31: 8
+        line 32: 13
+        line 34: 18
 
   int addTwo(int, int);
     descriptor: (II)I
@@ -180,7 +180,7 @@ Constant pool:
          2: iadd
          3: ireturn
       LineNumberTable:
-        line 33: 0
+        line 37: 0
 
   static int addTwoStatic(int, int);
     descriptor: (II)I
@@ -192,7 +192,7 @@ Constant pool:
          2: iadd
          3: ireturn
       LineNumberTable:
-        line 37: 0
+        line 41: 0
 
   int add12and13();
     descriptor: ()I
@@ -205,7 +205,7 @@ Constant pool:
          5: invokevirtual #9                  // Method addTwo:(II)I
          8: ireturn
       LineNumberTable:
-        line 41: 0
+        line 45: 0
 
   int add12and13_static();
     descriptor: ()I
@@ -217,7 +217,7 @@ Constant pool:
          4: invokestatic  #10                 // Method addTwoStatic:(II)I
          7: ireturn
       LineNumberTable:
-        line 45: 0
+        line 49: 0
 
   java.lang.Object create();
     descriptor: ()Ljava/lang/Object;
@@ -229,7 +229,7 @@ Constant pool:
          4: invokespecial #1                  // Method java/lang/Object."<init>":()V
          7: areturn
       LineNumberTable:
-        line 49: 0
+        line 53: 0
 
   int chooseNear(int);
     descriptor: (I)I
@@ -252,11 +252,11 @@ Constant pool:
         34: iconst_m1
         35: ireturn
       LineNumberTable:
-        line 53: 0
-        line 54: 28
-        line 55: 30
-        line 56: 32
-        line 57: 34
+        line 57: 0
+        line 58: 28
+        line 59: 30
+        line 60: 32
+        line 61: 34
       StackMapTable: number_of_entries = 4
         frame_type = 28 /* same */
         frame_type = 1 /* same */
@@ -284,11 +284,11 @@ Constant pool:
         42: iconst_m1
         43: ireturn
       LineNumberTable:
-        line 62: 0
-        line 63: 36
-        line 64: 38
-        line 65: 40
-        line 66: 42
+        line 66: 0
+        line 67: 36
+        line 68: 38
+        line 69: 40
+        line 70: 42
       StackMapTable: number_of_entries = 4
         frame_type = 36 /* same */
         frame_type = 1 /* same */
@@ -312,11 +312,11 @@ Constant pool:
          from    to  target type
              0     4     7   Class java/lang/Exception
       LineNumberTable:
-        line 72: 0
-        line 75: 4
-        line 73: 7
-        line 74: 8
-        line 76: 13
+        line 76: 0
+        line 79: 4
+        line 77: 7
+        line 78: 8
+        line 80: 13
       StackMapTable: number_of_entries = 2
         frame_type = 71 /* same_locals_1_stack_item */
           stack = [ class java/lang/Exception ]
@@ -332,7 +332,7 @@ Constant pool:
          4: invokespecial #15                 // Method java/lang/Exception."<init>":()V
          7: athrow
       LineNumberTable:
-        line 79: 0
+        line 83: 0
     Exceptions:
       throws java.lang.Exception
 
@@ -345,7 +345,7 @@ Constant pool:
          1: invokevirtual #16                 // Method java/lang/Exception.printStackTrace:()V
          4: return
       LineNumberTable:
-        line 83: 0
-        line 84: 4
+        line 87: 0
+        line 88: 4
 }
 SourceFile: "Code.java"

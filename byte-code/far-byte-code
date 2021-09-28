@@ -1,6 +1,6 @@
 Classfile /Users/jing/code/github/my/java-projects/byte-code/Far.class
   Last modified 2021年9月10日; size 251 bytes
-  MD5 checksum 68892b0b72f74b08673f83b8bdf1e3b4
+  MD5 checksum 45bf16cf647d6dd8cff355d3075bc864
   Compiled from "Code.java"
 class Far extends Near
   minor version: 0
@@ -37,7 +37,7 @@ Constant pool:
          1: invokespecial #1                  // Method Near."<init>":()V
          4: return
       LineNumberTable:
-        line 105: 0
+        line 108: 0
 
   int getItFar();
     descriptor: ()I
@@ -48,6 +48,6 @@ Constant pool:
          1: invokespecial #2                  // Method Near.getItNear:()I
          4: ireturn
       LineNumberTable:
-        line 107: 0
+        line 110: 0
 }
 SourceFile: "Code.java"
