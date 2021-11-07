@@ -3,3 +3,9 @@ name: xiaoyu
 
 server:
   port: 8099
+
+
+
+spring.datasource.url: jdbc:mysql://localhost:3306/test
+spring.datasource.username: root
+spring.datasource.password: pass4sac%

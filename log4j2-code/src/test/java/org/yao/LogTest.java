@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 import org.apache.logging.log4j.message.ObjectMessage;
+import org.apache.logging.log4j.message.StringMapMessage;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -123,6 +124,7 @@ public class LogTest {
     markerLog.info("entered classroom");
     markerLog.info(MARKER, "entered classroom");
   }
+
 }
 
 
