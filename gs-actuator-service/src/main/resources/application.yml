@@ -7,12 +7,16 @@ management:
   endpoints:
     web:
       exposure:
-        include: ["health", "prometheus"]
+#        include: "health,prometheus"
+        include: "health"
 
-#spring:
-#  datasource:
-##    type: com.alibaba.druid.pool.DruidDataSource
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/test
-#    username: test_user
-#    password: 123456
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+    username: test_user
+    password: 123456
+    druid:
+      max-active: 1
+      max-wait: 400
