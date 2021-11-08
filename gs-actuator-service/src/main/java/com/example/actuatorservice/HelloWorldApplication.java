@@ -10,7 +10,6 @@ import static org.fusesource.jansi.Ansi.Color.*;
 public class HelloWorldApplication {
 
 	public static void main(String[] args) {
-		System.out.println( ansi().fg(RED).a("Hello").fg(GREEN).a(" World").reset() );
 		SpringApplication.run(HelloWorldApplication.class, args);
 	}
 
