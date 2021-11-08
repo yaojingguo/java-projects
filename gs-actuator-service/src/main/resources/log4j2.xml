@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="log-dir">logs</Property>
+  </Properties>
+  <Appenders>
+
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+
+    <!-- rolling file -->
+    <RollingFile name="RollingFile" fileName="${log-dir}/slow-sql.log"
+                 filePattern="${log-dir}/slow-sql-%d{yyyy-MM-dd}-%i.log">
+      <PatternLayout>
+        <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+      </PatternLayout>
+      <Policies>
+        <OnStartupTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="2 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="20"/>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="INFO">
+      <AppenderRef ref="Console"/>
+    </Root>
+<!--    <Logger name="druid.sql" level="INFO">-->
+<!--      <AppenderRef ref="Console"/>-->
+<!--    </Logger>-->
+    <!--    <Logger name="org.springframework" level="ERROR" additivity="false">-->
+    <!--      <AppenderRef ref="Console" />-->
+    <!--    </Logger>-->
+    <!--    <Logger name="springfox" level="ERROR" additivity="false">-->
+    <!--      <AppenderRef ref="Console" />-->
+    <!--    </Logger>-->
+<!--    <Logger name="com.alibaba.druid.filter.stat.StatFilter" level="ERROR" additivity="false">-->
+<!--      <AppenderRef ref="RollingFile"/>-->
+<!--    </Logger>-->
+  </Loggers>
+</Configuration>
