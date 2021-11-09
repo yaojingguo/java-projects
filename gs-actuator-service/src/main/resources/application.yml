@@ -17,6 +17,6 @@ spring:
     url: jdbc:mysql://localhost:3306/test
     username: test_user
     password: 123456
-    # druid:
-    #   max-active: 1
-    #   max-wait: 400
+    druid:
+      max-active: 10
+      max-wait: 500

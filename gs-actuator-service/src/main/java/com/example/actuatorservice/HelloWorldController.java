@@ -47,4 +47,10 @@ public class HelloWorldController {
   public String start() {
     return dao.stress();
   }
+
+  @GetMapping("/hold")
+  @ResponseBody
+  public String hold() {
+    return dao.holdConnections();
+  }
 }

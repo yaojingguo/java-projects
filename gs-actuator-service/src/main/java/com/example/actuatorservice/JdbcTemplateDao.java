@@ -1,12 +1,16 @@
 package com.example.actuatorservice;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ConnectionCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +28,30 @@ public class JdbcTemplateDao {
     return result;
   }
 
+  public String holdConnections() {
+    new Thread(() -> {
+      template.execute(new MyCallback());
+    }).start();
+    return "OK";
+  }
+
+  private static class MyCallback implements ConnectionCallback {
+
+    @Override
+    public Object doInConnection(final Connection con) throws SQLException, DataAccessException {
+      Statement stmt = con.createStatement();
+      ResultSet rs =
+        stmt.executeQuery("select * from school_class limit 2");
+      System.out.printf("result set:\n");
+      while (rs.next()) {
+        System.out.println("  school_id: " + rs.getInt(1) + ", class_code: " + rs.getString(2));
+      }
+      int millis = 2000;
+      System.out.printf("sleeping %d milliseconds...\n", millis);
+      Util.snap(millis);
+      return null;
+    }
+  }
   public String start() {
     new Thread() {
       @Override
