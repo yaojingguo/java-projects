@@ -1,6 +1,6 @@
-package org.yao;
+package org.yao.five;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,6 +11,6 @@ public class SystemTestConfig {
 
   @Bean
   public DataSource dataSource() {
-    // return new DataSource
+    return new MyDataSource();
   }
 }
