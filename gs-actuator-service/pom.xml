@@ -57,11 +57,11 @@
 <!--&lt;!&ndash;			<version>4.0.3</version>&ndash;&gt;-->
 <!--		</dependency>-->
 
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-			<version>1.2.8</version>
-		</dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>1.2.8</version>
+    </dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>

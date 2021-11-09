@@ -11,7 +11,7 @@ public class AppConfig {
     return new MyServiceImpl(prefix);
   }
 
-  @Bean
+  @Bean(initMethod = "init")
   public Prefix prefix() {
     return new Prefix();
   }

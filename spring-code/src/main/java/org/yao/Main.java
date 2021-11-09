@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
 
   public static void main(String[] args) {
-    oneWay();
+    fourWay();
   }
 
   private static void twoWay() {
@@ -27,5 +27,18 @@ public class Main {
     ctx.refresh();
     MyService myService = ctx.getBean(MyService.class);
     myService.doStuff();
+  }
+
+  private static void fourWay() {
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigB.class);
+
+    // now both beans A and B will be available...
+    A a = ctx.getBean(A.class);
+    B b = ctx.getBean(B.class);
+
+    System.out.printf("A: %s\n", a);
+    System.out.printf("B: %s\n", b);
+
+    System.out.println(ctx.getBean("aa"));
   }
 }
