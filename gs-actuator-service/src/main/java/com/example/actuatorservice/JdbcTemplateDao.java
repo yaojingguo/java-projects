@@ -44,7 +44,7 @@ public class JdbcTemplateDao {
           }
         }.start();
       }
-      snap((random.nextInt(10) + 1) * 100);
+      Util.snap((random.nextInt(10) + 1) * 100);
     }
   }
 
@@ -61,7 +61,7 @@ public class JdbcTemplateDao {
                 try {
                   conn = dataSource.getConnection();
                   System.out.printf("data source: %s\n", dataSource);
-                  snap(5000);
+                  Util.snap(5000);
                 } catch (Exception ex) {
                   throw new RuntimeException(ex);
                 } finally {
@@ -79,19 +79,12 @@ public class JdbcTemplateDao {
 
           long millis = (random.nextInt(10) + 1) * 200;
           System.out.printf("Sleeping %d ms...\n", millis);
-          snap(millis);
+          Util.snap(millis);
         }
       }
     }.start();
     return "stressed";
   }
 
-  private void snap(long millis) {
-    try {
 
-      Thread.sleep(millis);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
-    }
-  }
 }

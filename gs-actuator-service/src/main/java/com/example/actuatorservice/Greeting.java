@@ -7,10 +7,10 @@ public class Greeting {
 
 	private Logger log = LogManager.getLogger();
 
-	private final long id;
+	private final double id;
 	private final String content;
 
-	public Greeting(long id, String content) {
+	public Greeting(double id, String content) {
 		this.id = id;
 		this.content = content;
 	}
@@ -19,7 +19,7 @@ public class Greeting {
 		log.info("initializing greeting...");
 	}
 
-	public long getId() {
+	public double getId() {
 		return id;
 	}
 

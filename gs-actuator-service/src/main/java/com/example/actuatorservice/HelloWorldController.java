@@ -1,7 +1,8 @@
 package com.example.actuatorservice;
 
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.prometheus.PrometheusMeterRegistry;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,28 +14,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
+  private static final String template = "Hello, %s!";
 
+  private PrometheusMeterRegistry registry;
 
-	@Autowired
-	private JdbcTemplateDao dao;
+  private Counter counter;
 
-	@GetMapping("/hello-world")
-	@ResponseBody
-	public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}
+  @Autowired private JdbcTemplateDao dao;
 
-	@GetMapping("/classes")
-	@ResponseBody
-	public List classes() {
-		return dao.classes();
-	}
+  @Autowired
+  public void init(PrometheusMeterRegistry registry) {
+    System.out.printf("registry: %s\n", registry);
+    this.counter = registry.counter("greet_request_total");
+  }
 
-	@GetMapping("/start")
-	@ResponseBody
-	public String start() {
-		return dao.stress();
-	}
+  @GetMapping("/hello-world")
+  @ResponseBody
+  public Greeting sayHello(
+      @RequestParam(name = "name", required = false, defaultValue = "Stranger") String name) {
+    counter.increment();
+    return new Greeting(counter.count(), String.format(template, name));
+  }
+
+  @GetMapping("/classes")
+  @ResponseBody
+  public List classes() {
+    return dao.classes();
+  }
+
+  @GetMapping("/start")
+  @ResponseBody
+  public String start() {
+    return dao.stress();
+  }
 }
