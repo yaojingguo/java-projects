@@ -63,7 +63,9 @@ public class JdbcTemplateDao {
                   System.out.printf("data source: %s\n", dataSource);
                   Util.snap(5000);
                 } catch (Exception ex) {
-                  throw new RuntimeException(ex);
+                  ex.printStackTrace();
+                  System.exit(10);
+                  // throw new RuntimeException(ex);
                 } finally {
                   if (conn != null) {
                     try {

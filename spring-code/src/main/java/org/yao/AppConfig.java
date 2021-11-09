@@ -1,7 +1,5 @@
 package org.yao;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,13 +7,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
   @Bean
-  public MyService myService() {
-    return new MyServiceImpl();
+  public MyService myService(Prefix prefix) {
+    return new MyServiceImpl(prefix);
   }
 
-  public static void main(String[] args) {
-    ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-    MyService myService = ctx.getBean(MyService.class);
-    myService.doStuff();
+  @Bean
+  public Prefix prefix() {
+    return new Prefix();
   }
 }
