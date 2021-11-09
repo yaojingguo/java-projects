@@ -1,4 +1,4 @@
-package org.yao;
+package org.yao.one;
 
 public interface MyService {
   void doStuff();

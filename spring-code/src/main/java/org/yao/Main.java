@@ -4,11 +4,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.yao.five.SystemTestConfig;
 import org.yao.five.TransferService;
+import org.yao.one.AppConfig;
+import org.yao.one.MyService;
+import org.yao.one.MyServiceImpl;
 
 public class Main {
 
   public static void main(String[] args) {
-    fiveWay();
+
   }
 
   private static void fiveWay() {
@@ -20,12 +23,6 @@ public class Main {
 
   private static void twoWay() {
     ApplicationContext ctx = new AnnotationConfigApplicationContext(MyServiceImpl.class);
-    MyService myService = ctx.getBean(MyService.class);
-    myService.doStuff();
-  }
-
-  private static void oneWay() {
-    ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
     MyService myService = ctx.getBean(MyService.class);
     myService.doStuff();
   }

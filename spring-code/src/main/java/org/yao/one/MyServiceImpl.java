@@ -1,4 +1,4 @@
-package org.yao;
+package org.yao.one;
 
 public class MyServiceImpl implements MyService {
 
