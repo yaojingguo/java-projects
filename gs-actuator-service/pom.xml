@@ -51,6 +51,13 @@
 			<version>1.7.5</version>
 		</dependency>
 
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_pushgateway</artifactId>
+<!--			<version>0.12.0</version>-->
+<!--			<type>bundle</type>-->
+		</dependency>
+
 <!--		<dependency>-->
 <!--			<groupId>com.zaxxer</groupId>-->
 <!--			<artifactId>HikariCP</artifactId>-->
