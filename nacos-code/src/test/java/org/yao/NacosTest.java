@@ -15,15 +15,16 @@ public class NacosTest {
   private static String dataId = "example.properties";
   private static String group = "DEFAULT_GROUP";
 
+
+
   @Test
   public void testGetConfig() {
     try {
       Properties properties = new Properties();
       properties.put("serverAddr", serverAddr);
-
       ConfigService configService = NacosFactory.createConfigService(properties);
       String content = configService.getConfig(dataId, group, 5000);
-      System.out.println(content);
+      System.out.printf("config: %s\n", content);
     } catch (NacosException e) {
       e.printStackTrace();
     }
@@ -36,20 +37,19 @@ public class NacosTest {
     ConfigService configService = NacosFactory.createConfigService(properties);
     String content = configService.getConfig(dataId, group, 5000);
     System.out.println(content);
-    configService.addListener(
-        dataId,
-        group,
+    Listener listener =
         new Listener() {
           @Override
           public void receiveConfigInfo(String configInfo) {
-            System.out.println("recieve1:" + configInfo);
+            System.out.println("recieve1: " + configInfo);
           }
 
           @Override
           public Executor getExecutor() {
             return null;
           }
-        });
+        };
+    configService.addListener(dataId, group, listener);
 
     // 测试让主线程不退出，因为订阅配置是守护线程，主线程退出守护线程就会退出。 正式代码中无需下面代码
     while (true) {
