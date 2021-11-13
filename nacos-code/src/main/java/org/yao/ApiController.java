@@ -19,7 +19,7 @@ public class ApiController {
   private Listener listener;
   private ConfigService configService;
 
-  @GetMapping("index")
+  @GetMapping("")
   @ResponseBody
   public String index() {
     return "OK";
