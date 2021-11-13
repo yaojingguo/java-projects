@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-@RequestMapping("api/config")
+@RequestMapping("/api/config")
 @RestController
 public class ApiController {
   private static String serverAddr = "localhost";
@@ -19,7 +19,7 @@ public class ApiController {
   private Listener listener;
   private ConfigService configService;
 
-  @GetMapping("")
+  @GetMapping("index")
   @ResponseBody
   public String index() {
     return "OK";
