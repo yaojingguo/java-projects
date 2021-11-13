@@ -10,6 +10,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 @RequestMapping("api/config")
+@RestController
 public class ApiController {
   private static String serverAddr = "localhost";
   private static String dataId = "example.properties";
