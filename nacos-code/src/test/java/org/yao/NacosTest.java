@@ -5,6 +5,8 @@ import com.alibaba.nacos.api.PropertyKeyConst;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Properties;
@@ -14,15 +16,23 @@ public class NacosTest {
   private static String serverAddr = "localhost";
   private static String dataId = "example.properties";
   private static String group = "DEFAULT_GROUP";
+  private ConfigService configService;
 
+  @Before
+  public void setUp() throws NacosException {
+    Properties properties = new Properties();
+    properties.put("serverAddr", serverAddr);
+    configService = NacosFactory.createConfigService(properties);
+  }
 
+  @After
+  public void tearDown() throws NacosException {
+    configService.shutDown();
+  }
 
   @Test
   public void testGetConfig() {
     try {
-      Properties properties = new Properties();
-      properties.put("serverAddr", serverAddr);
-      ConfigService configService = NacosFactory.createConfigService(properties);
       String content = configService.getConfig(dataId, group, 5000);
       System.out.printf("config: %s\n", content);
     } catch (NacosException e) {
@@ -32,9 +42,6 @@ public class NacosTest {
 
   @Test
   public void testListenConfig() throws NacosException {
-    Properties properties = new Properties();
-    properties.put("serverAddr", serverAddr);
-    ConfigService configService = NacosFactory.createConfigService(properties);
     String content = configService.getConfig(dataId, group, 5000);
     System.out.println(content);
     Listener listener =
@@ -59,5 +66,18 @@ public class NacosTest {
         e.printStackTrace();
       }
     }
+  }
+
+  @Test
+  public void testPublishConfig() throws NacosException {
+    String content = "roombox.whiteboard.im=im-beijing\n" + "name=xiaoyu";
+    boolean isPublishOk = configService.publishConfig(dataId, group, content);
+    System.out.printf("publish ok: %b\n", isPublishOk);
+  }
+
+  @Test
+  public void testDeleteConfig() throws NacosException {
+    boolean isRemoveOk = configService.removeConfig(dataId, group);
+    System.out.printf("removed ok: %b\n", isRemoveOk);
   }
 }
