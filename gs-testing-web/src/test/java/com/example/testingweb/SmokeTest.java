@@ -16,6 +16,7 @@ public class SmokeTest {
 	@Autowired
 	private MyBean myBean;
 
+	@Test
 	public void contextLoads() throws Exception {
 		assertThat(controller).isNotNull();
 		assertThat(myBean).isNotNull();
