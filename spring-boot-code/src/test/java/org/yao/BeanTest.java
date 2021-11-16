@@ -1,6 +1,6 @@
 package org.yao;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,9 +20,5 @@ public class BeanTest {
     System.out.println(controller);
   }
 
-  @Test
-  public void testBean() {
-    System.out.printf("teaching result: %s\n", b.teach());
-  }
 
 }
