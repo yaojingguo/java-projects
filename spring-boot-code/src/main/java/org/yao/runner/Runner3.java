@@ -1,13 +1,12 @@
-package com.yao;
+package org.yao.runner;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Runner2 implements CommandLineRunner {
+public class Runner3 implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
-    System.out.println("Hi, I am runner2.");
+    System.out.println("Hi, I am runner3.");
   }
-
 }
