@@ -1,5 +1,6 @@
 package org.yao;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -33,28 +34,16 @@ public class ConsumerTest {
 
 
   private static void verifyAutoCommit() {
-    Thread flager = new Thread() {
-      @Test
-      public void run() {
-        try {
-          Thread.sleep(10 * 1000);
-//          running = false;
-        } catch (InterruptedException ie) {
-          throw new RuntimeException(ie);
-        }
-      }
-    };
-    flager.start();
-
     try (KafkaConsumer<String, String> consumer = createConsumer();) {
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
       while (running) {
-        ConsumerRecords<String, String> records = consumer.poll(1000);
-        if (records.count() > 0)
+        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
+        if (records.count() > 0) {
           for (ConsumerRecord<String, String> record : records)
             System.out.println(record.offset() + ": " + record.value());
-        else
+        } else {
           System.out.println("got nothing");
+        }
       }
     }
   }
