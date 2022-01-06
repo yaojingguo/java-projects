@@ -6,17 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.jdbc.DataSourceUnwrapper;
 import org.springframework.boot.jdbc.metadata.AbstractDataSourcePoolMetadata;
 import org.springframework.boot.jdbc.metadata.DataSourcePoolMetadataProvider;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class HelloWorldApplication {
+public class App {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloWorldApplication.class, args);
-		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class)) {
-			context.getBean(Sender.class).send("test", 42);
-		}
+		SpringApplication.run(App.class, args);
 	}
 
 	@Bean

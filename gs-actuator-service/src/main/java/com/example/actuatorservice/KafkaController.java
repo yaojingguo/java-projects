@@ -15,7 +15,6 @@ import java.util.Properties;
 @RestController
 @RequestMapping("kafka")
 public class KafkaController {
-  private static String topicName = "apiTopic";
 
   @GetMapping("start")
   public void start() {
@@ -46,7 +45,7 @@ public class KafkaController {
 
   private static void kafkaApi() {
     try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
-      consumer.subscribe(Arrays.asList(topicName));
+      consumer.subscribe(Arrays.asList(Config.topicName));
 //      nap(1000 * 300);
       while (true) {
         long seconds = 2;
