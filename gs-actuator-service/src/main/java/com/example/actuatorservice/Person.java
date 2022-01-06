@@ -1,4 +1,4 @@
-package org.yao;
+package com.example.actuatorservice;
 
 public class Person {
   private String name;

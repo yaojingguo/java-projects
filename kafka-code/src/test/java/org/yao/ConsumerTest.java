@@ -32,15 +32,28 @@ public class ConsumerTest {
     return new KafkaConsumer<>(props);
   }
 
+  private static void nap(long millis) {
+    try {
+      System.out.printf("napping for %d milliseconds\n", millis);
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   private static void verifyAutoCommit() {
-    try (KafkaConsumer<String, String> consumer = createConsumer();) {
+    try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
+      nap(1000 * 300);
       while (running) {
-        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
+        long seconds = 120;
+        System.out.printf("polling for %d seconds\n", seconds);
+        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(120));
+        System.out.printf("polled\n");
         if (records.count() > 0) {
-          for (ConsumerRecord<String, String> record : records)
+          for (ConsumerRecord<String, String> record : records) {
             System.out.println(record.offset() + ": " + record.value());
+          }
         } else {
           System.out.println("got nothing");
         }
@@ -55,19 +68,20 @@ public class ConsumerTest {
 
   @Test
   public void testWakeup() {
-    try (KafkaConsumer<String, String> consumer = createConsumer();) {
-      Thread killer = new Thread() {
-        @Override
-        public void run() {
-          try {
-            Thread.sleep(20 * 1000);
-            System.out.println("waking up...");
-            consumer.wakeup();
-          } catch (InterruptedException ie) {
-            throw new RuntimeException();
-          }
-        }
-      };
+    try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
+      Thread killer =
+          new Thread() {
+            @Override
+            public void run() {
+              try {
+                Thread.sleep(20 * 1000);
+                System.out.println("waking up...");
+                consumer.wakeup();
+              } catch (InterruptedException ie) {
+                throw new RuntimeException();
+              }
+            }
+          };
       killer.start();
 
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
@@ -150,9 +164,10 @@ public class ConsumerTest {
         try {
           for (ConsumerRecord<String, String> record : records) {
             System.out.println(record.offset() + ": " + record.value());
-            consumer.commitSync(Collections.singletonMap(new TopicPartition(record.topic(),
-                    record.partition()),
-                new OffsetAndMetadata(record.offset() + 1)));
+            consumer.commitSync(
+                Collections.singletonMap(
+                    new TopicPartition(record.topic(), record.partition()),
+                    new OffsetAndMetadata(record.offset() + 1)));
           }
         } catch (CommitFailedException e) {
           // application specific failure handling
@@ -175,8 +190,8 @@ public class ConsumerTest {
             System.out.println(record.offset() + ": " + record.value());
 
           long lastoffset = partitionRecords.get(partitionRecords.size() - 1).offset();
-          consumer.commitSync(Collections.singletonMap(partition,
-              new OffsetAndMetadata(lastoffset + 1)));
+          consumer.commitSync(
+              Collections.singletonMap(partition, new OffsetAndMetadata(lastoffset + 1)));
         }
       }
     } finally {
@@ -193,14 +208,16 @@ public class ConsumerTest {
         for (ConsumerRecord<String, String> record : records)
           System.out.println(record.offset() + ": " + record.value());
 
-        consumer.commitAsync(new OffsetCommitCallback() {
-          @Override
-          public void onComplete(Map<TopicPartition, OffsetAndMetadata> offsets, Exception exception) {
-            if (exception != null) {
-              // application specific failure handling
-            }
-          }
-        });
+        consumer.commitAsync(
+            new OffsetCommitCallback() {
+              @Override
+              public void onComplete(
+                  Map<TopicPartition, OffsetAndMetadata> offsets, Exception exception) {
+                if (exception != null) {
+                  // application specific failure handling
+                }
+              }
+            });
       }
     } finally {
       consumer.close();
