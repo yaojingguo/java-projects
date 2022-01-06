@@ -20,7 +20,7 @@ public class KafkaController {
   @GetMapping("start")
   public void start() {
     new Thread(() -> {
-      verifyAutoCommit();
+//      kafkaApi();
     }).start();
     System.out.printf("thread started\n");
   }
@@ -44,7 +44,7 @@ public class KafkaController {
     return new KafkaConsumer<>(props);
   }
 
-  private static void verifyAutoCommit() {
+  private static void kafkaApi() {
     try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
       consumer.subscribe(Arrays.asList(topicName));
 //      nap(1000 * 300);
