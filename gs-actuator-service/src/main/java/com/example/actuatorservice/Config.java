@@ -16,6 +16,7 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.MicrometerConsumerListener;
+import org.springframework.kafka.core.MicrometerProducerListener;
 import org.springframework.kafka.core.ProducerFactory;
 
 import java.util.Collections;
@@ -26,6 +27,7 @@ import java.util.Map;
 @EnableKafka
 public class Config {
   public static final String topicName = "apiTopic";
+  public final static String myTopic = "myTopic";
 
   @Autowired private MeterRegistry meterRegistry;
 
@@ -43,10 +45,10 @@ public class Config {
   public ConsumerFactory<String, String> consumerFactory(MeterRegistry meterRegistry) {
     DefaultKafkaConsumerFactory<String, String> cf =
         new DefaultKafkaConsumerFactory<>(consumerProps());
-//    cf.addListener(
-//        new MicrometerConsumerListener<String, String>(
-//            meterRegistry,
-//            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
+    cf.addListener(
+        new MicrometerConsumerListener<String, String>(
+            meterRegistry,
+            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
     return cf;
   }
 
@@ -54,6 +56,7 @@ public class Config {
     Map<String, Object> props = new HashMap<>();
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
     props.put(ConsumerConfig.GROUP_ID_CONFIG, "group");
+//    props.put("client.id", "mixed");
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
     props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
@@ -77,10 +80,16 @@ public class Config {
     return new KafkaTemplate<String, String>(producerFactory);
   }
 
-  @Bean
-  public ProducerFactory<String, String> producerFactory() {
-    return new DefaultKafkaProducerFactory<>(senderProps());
-  }
+//  @Bean
+//  public ProducerFactory<String, String> producerFactory(MeterRegistry meterRegistry) {
+//    DefaultKafkaProducerFactory<String, String> pf =
+//        new DefaultKafkaProducerFactory<>(senderProps());
+//    pf.addListener(
+//        new MicrometerProducerListener<String, String>(
+//            meterRegistry,
+//            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
+//    return pf;
+//  }
 
   private Map<String, Object> senderProps() {
     Map<String, Object> props = new HashMap<>();

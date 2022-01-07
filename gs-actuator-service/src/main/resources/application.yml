@@ -7,11 +7,15 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
-#        include: "health,prometheus"
+        include: "health,prometheus"
+#        include: "*"
+
 #        include: "health"
 
 spring:
+  kafka:
+    consumer:
+      client-id: foo
   datasource:
 #    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,3 +25,5 @@ spring:
     druid:
       max-active: 10
       max-wait: 500
+
+
