@@ -49,6 +49,7 @@ public class Config {
         new MicrometerConsumerListener<String, String>(
             meterRegistry,
             Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
+//s
     return cf;
   }
 
