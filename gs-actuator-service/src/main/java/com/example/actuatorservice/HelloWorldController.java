@@ -16,8 +16,6 @@ public class HelloWorldController {
 
   private static final String template = "Hello, %s!";
 
-  private PrometheusMeterRegistry registry;
-
   private Counter counter;
 
   @Autowired private JdbcTemplateDao dao;
