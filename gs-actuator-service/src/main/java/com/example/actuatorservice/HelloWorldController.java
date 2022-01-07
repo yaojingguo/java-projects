@@ -23,7 +23,7 @@ public class HelloWorldController {
   @Autowired
   public void init(PrometheusMeterRegistry registry) {
     System.out.printf("registry: %s\n", registry);
-    this.counter = registry.counter("greet_request_total");
+    this.counter = registry.counter("roombox_greet_request_total");
   }
 
   @GetMapping("/hello-world")
