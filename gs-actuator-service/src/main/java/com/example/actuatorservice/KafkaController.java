@@ -30,8 +30,6 @@ public class KafkaController {
   @Autowired private MeterRegistry meterRegistry;
 
 
-
-
   @GetMapping("start")
   public void start() {
     new Thread(
@@ -63,10 +61,6 @@ public class KafkaController {
     KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
     List<Tag> consumerTags = new ArrayList<>();
     consumerTags.add(new ImmutableTag("spring_id", "my_id"));
-    consumerTags.add(new ImmutableTag("customTag", "customTagValue"));
-//    consumerTags.add(new ImmutableTag("student.name", "xioayu"));
-//    consumerTags.add(new ImmutableTag("student.grade", "6"));
-//    consumerTags.add(new ImmutableTag("student.school", "haidian"));
     KafkaClientMetrics metrics = new KafkaClientMetrics(consumer, consumerTags);
     metrics.bindTo(meterRegistry);
     log.info("bound {} to {}", metrics, meterRegistry);

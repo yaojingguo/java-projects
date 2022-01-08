@@ -41,17 +41,19 @@ public class Config {
     return factory;
   }
 
-  @Bean
-  public ConsumerFactory<String, String> consumerFactory(MeterRegistry meterRegistry) {
-    DefaultKafkaConsumerFactory<String, String> cf =
-        new DefaultKafkaConsumerFactory<>(consumerProps());
-    cf.addListener(
-        new MicrometerConsumerListener<String, String>(
-            meterRegistry,
-            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
-//s
-    return cf;
-  }
+//  @Bean
+//  public ConsumerFactory<String, String> consumerFactory(MeterRegistry meterRegistry) {
+//    DefaultKafkaConsumerFactory<String, String> cf =
+//        new DefaultKafkaConsumerFactory<>(consumerProps());
+////    cf.addListener(
+////        new MicrometerConsumerListener<String, String>(
+////            meterRegistry,
+////            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
+//    cf.addListener(
+//        new MicrometerConsumerListener<String, String>(
+//            meterRegistry));
+//    return cf;
+//  }
 
   private Map<String, Object> consumerProps() {
     Map<String, Object> props = new HashMap<>();

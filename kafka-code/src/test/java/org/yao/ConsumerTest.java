@@ -46,12 +46,11 @@ public class ConsumerTest {
   private static void verifyAutoCommit() {
     try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
-      nap(1000 * 300);
       boolean done = false;
       while (running) {
-        long seconds = 120;
+        long seconds = 2;
         System.out.printf("polling for %d seconds\n", seconds);
-        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(120));
+        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(seconds));
         System.out.printf("polled\n");
         if (records.count() > 0) {
           for (ConsumerRecord<String, String> record : records) {
@@ -65,7 +64,7 @@ public class ConsumerTest {
           Map<MetricName, ? extends Metric> map = consumer.metrics();
           for (Map.Entry<MetricName, ? extends Metric> entry: map.entrySet()) {
             MetricName metricName = entry.getKey();
-            System.out.printf("name: %s, group: %s, tags: %s\n", metricName.group(), metricName.name(), metricName.tags());
+            System.out.printf("name: %s, group: %s, tags: %s\n", metricName.name(), metricName.group(), metricName.tags());
           }
         }
       }
