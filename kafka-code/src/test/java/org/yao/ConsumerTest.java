@@ -13,6 +13,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.clients.consumer.OffsetCommitCallback;
+import org.apache.kafka.common.Metric;
+import org.apache.kafka.common.MetricName;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -45,6 +47,7 @@ public class ConsumerTest {
     try (KafkaConsumer<String, String> consumer = createConsumer(); ) {
       consumer.subscribe(Arrays.asList(ProducerTest.topic));
       nap(1000 * 300);
+      boolean done = false;
       while (running) {
         long seconds = 120;
         System.out.printf("polling for %d seconds\n", seconds);
@@ -56,6 +59,14 @@ public class ConsumerTest {
           }
         } else {
           System.out.println("got nothing");
+        }
+        if (!done) {
+          done = true;
+          Map<MetricName, ? extends Metric> map = consumer.metrics();
+          for (Map.Entry<MetricName, ? extends Metric> entry: map.entrySet()) {
+            MetricName metricName = entry.getKey();
+            System.out.printf("name: %s, group: %s, tags: %s\n", metricName.group(), metricName.name(), metricName.tags());
+          }
         }
       }
     }
