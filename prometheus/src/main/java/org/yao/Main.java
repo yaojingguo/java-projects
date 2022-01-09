@@ -3,6 +3,7 @@ package org.yao;
 import io.prometheus.client.Counter;
 import io.prometheus.client.exporter.HTTPServer;
 import io.prometheus.client.hotspot.DefaultExports;
+
 import java.io.IOException;
 
 public class Main {
@@ -14,17 +15,20 @@ public class Main {
 
     DefaultExports.initialize();
 
-    new Thread(() -> {
-      for (;;) {
-        oneCounter.inc();
-        nap(2);
-      }
-    }).start();
+    new Thread(
+            () -> {
+              for (; ; ) {
+                System.out.printf("counter increasing\n");
+                oneCounter.inc();
+                System.out.printf("counter increased\n");
+                nap(200);
+              }
+            })
+        .start();
   }
 
   private static void nap(long seconds) {
     try {
-      System.out.printf("napping %d seconds\n", seconds);
       Thread.sleep(seconds * 1000);
     } catch (InterruptedException ex) {
       throw new RuntimeException(ex);
