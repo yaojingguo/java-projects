@@ -2,6 +2,7 @@ package org.yao;
 
 import com.sun.net.httpserver.HttpServer;
 import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.FunctionCounter;
 import io.micrometer.prometheus.PrometheusConfig;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
 
@@ -22,9 +23,17 @@ public class Main {
               () -> {
                 System.out.printf("incrementing...\n");
                 counter.increment();
-                System.out.printf("incremented");
+                System.out.printf("incremented\n");
               })
           .start();
+
+      MyCounterState state = new MyCounterState();
+
+      FunctionCounter functionCounter =
+          FunctionCounter.builder("yu_counter", state, obj -> obj.count())
+              .description("a description of what this counter does") // optional
+              .tags("region", "test") // optional
+              .register(prometheusRegistry);
 
       server.createContext(
           "/prometheus",
