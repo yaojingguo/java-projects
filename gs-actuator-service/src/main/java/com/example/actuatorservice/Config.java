@@ -71,28 +71,22 @@ public class Config {
     return new Listener();
   }
 
-  // Produce
-  @Bean
-  public Sender sender(KafkaTemplate<String, String> template) {
-    return new Sender(template);
-  }
-
   @Bean
   public KafkaTemplate<String, String> kafkaTemplate(
       ProducerFactory<String, String> producerFactory) {
     return new KafkaTemplate<String, String>(producerFactory);
   }
 
-//  @Bean
-//  public ProducerFactory<String, String> producerFactory(MeterRegistry meterRegistry) {
-//    DefaultKafkaProducerFactory<String, String> pf =
-//        new DefaultKafkaProducerFactory<>(senderProps());
-//    pf.addListener(
-//        new MicrometerProducerListener<String, String>(
-//            meterRegistry,
-//            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
-//    return pf;
-//  }
+  @Bean
+  public ProducerFactory<String, String> producerFactory(MeterRegistry meterRegistry) {
+    DefaultKafkaProducerFactory<String, String> pf =
+        new DefaultKafkaProducerFactory<>(senderProps());
+    pf.addListener(
+        new MicrometerProducerListener<String, String>(
+            meterRegistry,
+            Collections.singletonList(new ImmutableTag("customTag", "customTagValue"))));
+    return pf;
+  }
 
   private Map<String, Object> senderProps() {
     Map<String, Object> props = new HashMap<>();

@@ -29,7 +29,6 @@ public class KafkaController {
 
   @Autowired private MeterRegistry meterRegistry;
 
-
   @GetMapping("start")
   public void start() {
     new Thread(
