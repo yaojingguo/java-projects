@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import org.junit.jupiter.api.Test;
 

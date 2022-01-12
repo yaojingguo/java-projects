@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("another")
-public class AnotherController {
+@RequestMapping("template")
+public class TemplateController {
   private Logger log = LoggerFactory.getLogger(getClass());
 
-  @Autowired private KafkaTemplate<String, String> template2;
+  @Autowired private KafkaTemplate<String, String> template;
 
   @GetMapping("send")
   public void send() {
     try {
-      Container.setTwo(template2);
-      Container.check();
-      template2.send(Config.topicName, "two").get();
-      log.info("{} sent message", template2);
+      Container.setOne(template);
+      template.send(Config.topicName, "one").get();
+      log.info("template {} sent message", template);
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.prometheus.PrometheusMeterRegistry;

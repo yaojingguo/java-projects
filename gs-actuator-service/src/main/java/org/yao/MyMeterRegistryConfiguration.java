@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;

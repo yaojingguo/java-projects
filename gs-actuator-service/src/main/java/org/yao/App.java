@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.SpringApplication;

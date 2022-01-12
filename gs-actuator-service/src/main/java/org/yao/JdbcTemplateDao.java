@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

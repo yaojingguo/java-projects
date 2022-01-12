@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package org.yao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
