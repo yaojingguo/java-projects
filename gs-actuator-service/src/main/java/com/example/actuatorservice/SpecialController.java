@@ -13,12 +13,11 @@ public class SpecialController {
   private Logger log = LoggerFactory.getLogger(SpecialController.class);
 
   @GetMapping("index")
-  public String index(@RequestParam long seconds, @RequestParam boolean success) {
+  public String index(@RequestParam long millis, @RequestParam boolean success) {
     if (!success) {
       throw new RuntimeException();
     }
-    long millis = seconds * 1000;
-    log.info("sleeping for {} seconds...", seconds);
+    log.info("sleeping for {} milliseconds...", millis);
     Util.snap(millis);
     log.info("woke up");
     return "I am special";
