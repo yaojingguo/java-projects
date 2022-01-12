@@ -9,11 +9,15 @@ management:
       exposure:
         include: "health,prometheus"
   metrics:
-    distribution:
-      percentiles-histogram:
-        http:
-          server:
-            requests: true
+    slo:
+      http:
+        server:
+          requests: "100ms,150ms,250ms,500ms,1s,2s"
+#    distribution:
+#      percentiles-histogram:
+#        http:
+#          server:
+#            requests: true
 #    tags:
 #      project: roombox-class
 #    web:
