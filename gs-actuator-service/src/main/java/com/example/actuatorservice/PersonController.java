@@ -4,6 +4,7 @@ import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @Timed
+@RequestMapping("api")
 public class PersonController {
   Map<Integer, Person> people = new HashMap<Integer, Person>();
 
@@ -22,12 +24,12 @@ public class PersonController {
     registry.gaugeMapSize("population", null, people);
   }
 
-  @GetMapping("/api/people")
+  @GetMapping("people")
   public Collection<Person> listPeople() {
     return people.values();
   }
 
-  @GetMapping("/api/person/")
+  @GetMapping("person")
   public Person findPerson(@PathVariable Integer id) {
     return people.get(id);
   }
