@@ -21,10 +21,21 @@ public class SpecialController {
     if (!success) {
       throw new RuntimeException();
     }
-    log.info("sleeping for {} milliseconds...", millis);
+    log.info("index: sleeping for {} milliseconds...", millis);
     Util.snap(millis);
-    log.info("woke up");
-    return "I am special";
+    log.info("index: woke up");
+    return "index: I am special";
+  }
+
+  @GetMapping("index2")
+  public String index2(@RequestParam long millis, @RequestParam boolean success) {
+    if (!success) {
+      throw new RuntimeException();
+    }
+    log.info("index2: sleeping for {} milliseconds...", millis);
+    Util.snap(millis);
+    log.info("index2: woke up");
+    return "index2: I am special";
   }
 
   @GetMapping("header")
