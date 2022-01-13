@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration(proxyBeanMethods = false)
 public class MyMeterRegistryConfiguration {
 
-  @Bean
-  public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
-    return (registry) -> registry.config().commonTags("region", "us-east-1");
-  }
+//  @Bean
+//  public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
+//    return (registry) -> registry.config().commonTags("region", "us-east-1");
+//  }
 
 }
