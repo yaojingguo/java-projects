@@ -13,10 +13,15 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value={"classpath:one.yml", "classpath:two.yml"})
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     ApplicationContext ctx = new AnnotationConfigApplicationContext(Main.class);
     Worker w = ctx.getBean(Worker.class);
     w.show();
+    System.out.printf("hello, world\n");
+    for (int i = 0; i < 10; i++) {
+      Thread.sleep(1000);
+      System.out.printf("i: %d\n", i + 1);
+    }
   }
 
   @Bean
