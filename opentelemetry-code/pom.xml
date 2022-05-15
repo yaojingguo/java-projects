@@ -44,6 +44,11 @@
       <artifactId>opentelemetry-semconv</artifactId>
       <version>1.14.0-alpha</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <version>3.0.1u2</version>
+    </dependency>
   </dependencies>
 
 </project>

@@ -15,10 +15,10 @@ public final class JaegerExample {
   private void myWonderfulUseCase() {
     // Generate a span
     Span span = this.tracer.spanBuilder("Start my wonderful use case").startSpan();
-    span.addEvent("Event 0");
+    span.addEvent("Event 100");
     // execute my use case - here we simulate a wait
     doWork();
-    span.addEvent("Event 1");
+    span.addEvent("Event 111");
     span.end();
   }
 
@@ -38,11 +38,14 @@ public final class JaegerExample {
     }
     String jaegerEndpoint = args[0];
 
+    System.out.printf("Jaeger endpoint: %s\n", jaegerEndpoint);
+
     // it is important to initialize your SDK as early as possible in your application's lifecycle
     OpenTelemetry openTelemetry = ExampleConfiguration.initOpenTelemetry(jaegerEndpoint);
 
     // Start the example
     JaegerExample example = new JaegerExample(openTelemetry);
+
     // generate a few sample spans
     for (int i = 0; i < 10; i++) {
       example.myWonderfulUseCase();
