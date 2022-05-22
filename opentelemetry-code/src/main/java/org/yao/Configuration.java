@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * All SDK management takes place here, away from the instrumentation code, which should only access
  * the OpenTelemetry APIs.
  */
-public class ExampleConfiguration {
+public class Configuration {
 
   /**
    * Initialize an OpenTelemetry SDK with a Jaeger exporter and a SimpleSpanProcessor.
@@ -22,7 +22,7 @@ public class ExampleConfiguration {
    * @param jaegerEndpoint The endpoint of your Jaeger instance.
    * @return A ready-to-use {@link OpenTelemetry} instance.
    */
-  static OpenTelemetry initOpenTelemetry(String jaegerEndpoint) {
+  public static OpenTelemetry jaeger(String jaegerEndpoint) {
     // Export traces to Jaeger
     JaegerGrpcSpanExporter jaegerExporter =
         JaegerGrpcSpanExporter.builder()
