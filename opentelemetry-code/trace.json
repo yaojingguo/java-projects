@@ -1,0 +1,154 @@
+{
+    "data": [
+        {
+            "traceID": "343a22c81c5f48b462d39868bad46ca0",
+            "spans": [
+                {
+                    "traceID": "343a22c81c5f48b462d39868bad46ca0",
+                    "spanID": "2f38d57dfb28e354",
+                    "operationName": "child",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "343a22c81c5f48b462d39868bad46ca0",
+                            "spanID": "99f4a6304f93b47c"
+                        }
+                    ],
+                    "startTime": 1653228066560840,
+                    "duration": 126028,
+                    "tags": [
+                        {
+                            "key": "class_type",
+                            "type": "string",
+                            "value": "VIP"
+                        },
+                        {
+                            "key": "otel.scope.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.example.JaegerExample"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.example.JaegerExample"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [],
+                    "processID": "p1",
+                    "warnings": null
+                },
+                {
+                    "traceID": "343a22c81c5f48b462d39868bad46ca0",
+                    "spanID": "99f4a6304f93b47c",
+                    "operationName": "top",
+                    "references": [],
+                    "startTime": 1653228066459000,
+                    "duration": 512264,
+                    "tags": [
+                        {
+                            "key": "uid",
+                            "type": "string",
+                            "value": "456"
+                        },
+                        {
+                            "key": "cid",
+                            "type": "string",
+                            "value": "123"
+                        },
+                        {
+                            "key": "otel.scope.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.example.JaegerExample"
+                        },
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "io.opentelemetry.example.JaegerExample"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "proto"
+                        }
+                    ],
+                    "logs": [
+                        {
+                            "timestamp": 1653228066460172,
+                            "fields": [
+                                {
+                                    "key": "event",
+                                    "type": "string",
+                                    "value": "Event 1"
+                                }
+                            ]
+                        },
+                        {
+                            "timestamp": 1653228066560736,
+                            "fields": [
+                                {
+                                    "key": "event",
+                                    "type": "string",
+                                    "value": "Event 2"
+                                }
+                            ]
+                        }
+                    ],
+                    "processID": "p1",
+                    "warnings": null
+                }
+            ],
+            "processes": {
+                "p1": {
+                    "serviceName": "otel-jaeger-example",
+                    "tags": [
+                        {
+                            "key": "hostname",
+                            "type": "string",
+                            "value": "bogon"
+                        },
+                        {
+                            "key": "ip",
+                            "type": "string",
+                            "value": "10.0.0.2"
+                        },
+                        {
+                            "key": "jaeger.version",
+                            "type": "string",
+                            "value": "opentelemetry-java"
+                        },
+                        {
+                            "key": "service.name",
+                            "type": "string",
+                            "value": "otel-jaeger-example"
+                        },
+                        {
+                            "key": "telemetry.sdk.language",
+                            "type": "string",
+                            "value": "java"
+                        },
+                        {
+                            "key": "telemetry.sdk.name",
+                            "type": "string",
+                            "value": "opentelemetry"
+                        },
+                        {
+                            "key": "telemetry.sdk.version",
+                            "type": "string",
+                            "value": "1.14.0"
+                        }
+                    ]
+                }
+            },
+            "warnings": null
+        }
+    ],
+    "total": 0,
+    "limit": 0,
+    "offset": 0,
+    "errors": null
+}
