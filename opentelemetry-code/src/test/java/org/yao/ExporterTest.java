@@ -10,4 +10,10 @@ public class ExporterTest {
     ExampleTracing example = new ExampleTracing(openTelemetry);
     example.tracing();
   }
+
+  @Test
+  public void testLogging() {
+    ExampleTracing example = new ExampleTracing(Configuration.logging());
+    example.tracing();
+  }
 }

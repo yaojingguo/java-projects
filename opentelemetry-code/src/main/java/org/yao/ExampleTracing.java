@@ -3,6 +3,7 @@ package org.yao;
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.context.Context;
 
 public final class ExampleTracing {
 
@@ -14,17 +15,23 @@ public final class ExampleTracing {
 
   private void myWonderfulUseCase() {
     // Generate a span
-    Span span = this.tracer.spanBuilder("Start my wonderful use case").startSpan();
+    Span span = this.tracer.spanBuilder("top").startSpan();
+
+    span.setAttribute("cid", "123");
+    span.setAttribute("uid", "456");
+
+
     span.addEvent("Event 1");
     // execute my use case - here we simulate a wait
     doWork();
     span.addEvent("Event 2");
-    child();
+    child(span);
     span.end();
   }
 
-  private void child() {
-    Span span = tracer.spanBuilder("child").startSpan();
+  private void child(Span parent) {
+    Span span = tracer.spanBuilder("child").setParent(Context.current().with(parent)).startSpan();
+    span.setAttribute("class_type", "VIP");
     doWork();
     span.end();
   }
