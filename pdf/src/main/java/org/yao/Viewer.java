@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Viewer {
   public static void main(String[] args) {
-    String filePath = "/Users/jing/Downloads/tb93hagen-mplib.pdf";
+    String filePath = "graphics.pdf";
 
     // build a controller
     SwingController controller = new SwingController();

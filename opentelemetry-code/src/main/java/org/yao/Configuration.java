@@ -2,6 +2,8 @@ package org.yao;
 
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.common.Attributes;
+import io.opentelemetry.api.trace.propagation.W3CTraceContextPropagator;
+import io.opentelemetry.context.propagation.ContextPropagators;
 import io.opentelemetry.exporter.jaeger.JaegerGrpcSpanExporter;
 import io.opentelemetry.exporter.logging.LoggingMetricExporter;
 import io.opentelemetry.exporter.logging.LoggingSpanExporter;
@@ -23,17 +25,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class Configuration {
 
-  /**
-   * Initialize an OpenTelemetry SDK with a Jaeger exporter and a SimpleSpanProcessor.
-   *
-   * @param jaegerEndpoint The endpoint of your Jaeger instance.
-   * @return A ready-to-use {@link OpenTelemetry} instance.
-   */
-  public static OpenTelemetry jaeger(String jaegerEndpoint) {
+
+  public static OpenTelemetry jaeger() {
     // Export traces to Jaeger
     JaegerGrpcSpanExporter jaegerExporter =
         JaegerGrpcSpanExporter.builder()
-            .setEndpoint(jaegerEndpoint)
+            .setEndpoint("http://localhost:14250")
             .setTimeout(30, TimeUnit.SECONDS)
             .build();
 
@@ -47,7 +44,9 @@ public class Configuration {
             .setResource(Resource.getDefault().merge(serviceNameResource))
             .build();
     OpenTelemetrySdk openTelemetry =
-        OpenTelemetrySdk.builder().setTracerProvider(tracerProvider).build();
+        OpenTelemetrySdk.builder().setTracerProvider(tracerProvider)
+            .setPropagators(ContextPropagators.create(W3CTraceContextPropagator.getInstance()))
+            .build();
 
     // it's always a good idea to shut down the SDK cleanly at JVM exit.
     Runtime.getRuntime().addShutdownHook(new Thread(tracerProvider::close));

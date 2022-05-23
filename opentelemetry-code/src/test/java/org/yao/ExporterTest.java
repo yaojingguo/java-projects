@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ExporterTest {
   @Test
   public void testJaeger() {
-    OpenTelemetry openTelemetry = Configuration.jaeger("http://localhost:14250");
+    OpenTelemetry openTelemetry = Configuration.jaeger();
     ExampleTracing example = new ExampleTracing(openTelemetry);
     example.tracing();
   }

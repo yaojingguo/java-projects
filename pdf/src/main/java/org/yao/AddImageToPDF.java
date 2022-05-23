@@ -2,6 +2,8 @@ package org.yao;
 
 import java.io.File;
 import java.io.IOException;
+
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -29,7 +31,7 @@ public class AddImageToPDF {
     // the document
     PDDocument doc = null;
     try {
-      doc = PDDocument.load(new File(inputFile));
+      doc = Loader.loadPDF(new File(inputFile));
 
       // we will add the image to the first page.
       PDPage page = doc.getPage(0);
