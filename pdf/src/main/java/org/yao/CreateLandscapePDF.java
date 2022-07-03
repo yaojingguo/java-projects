@@ -13,11 +13,6 @@ import org.apache.pdfbox.util.Matrix;
 
 /** This is an example of how to create a page with a landscape orientation. */
 public class CreateLandscapePDF {
-  /** Constructor. */
-  public CreateLandscapePDF() {
-    super();
-  }
-
   /**
    * creates a sample document with a landscape orientation and some text surrounded by a box.
    *
@@ -26,11 +21,7 @@ public class CreateLandscapePDF {
    * @throws IOException If there is an error writing the data.
    */
   public void doIt(String message, String outfile) throws IOException {
-    // the document
-    PDDocument doc = null;
-    try {
-      doc = new PDDocument();
-
+    try (PDDocument doc = new PDDocument()) {
       PDFont font = PDType1Font.HELVETICA;
       PDPage page = new PDPage(PDRectangle.A4);
       page.setRotation(90);
@@ -43,31 +34,46 @@ public class CreateLandscapePDF {
       float startY = 100;
       PDPageContentStream contentStream =
           new PDPageContentStream(doc, page, AppendMode.OVERWRITE, false);
+
       // add the rotation using the current transformation matrix
       // including a translation of pageWidth to use the lower left corner as 0,0 reference
       contentStream.transform(new Matrix(0, 1, -1, 0, pageWidth, 0));
       contentStream.setFont(font, fontSize);
       contentStream.beginText();
+
       contentStream.newLineAtOffset(startX, startY);
       contentStream.showText(message);
+
       contentStream.newLineAtOffset(0, 100);
       contentStream.showText(message);
+
       contentStream.newLineAtOffset(100, 100);
       contentStream.showText(message);
+
       contentStream.endText();
 
+      // Draw the box
+
+      // |
+      // |
       contentStream.moveTo(startX - 2, startY - 2);
       contentStream.lineTo(startX - 2, startY + 200 + fontSize);
       contentStream.stroke();
 
+      // |--
+      // |
       contentStream.moveTo(startX - 2, startY + 200 + fontSize);
       contentStream.lineTo(startX + 100 + stringWidth + 2, startY + 200 + fontSize);
       contentStream.stroke();
 
+      // |--|
+      // |  |
       contentStream.moveTo(startX + 100 + stringWidth + 2, startY + 200 + fontSize);
       contentStream.lineTo(startX + 100 + stringWidth + 2, startY - 2);
       contentStream.stroke();
 
+      // |--|
+      // |--|
       contentStream.moveTo(startX + 100 + stringWidth + 2, startY - 2);
       contentStream.lineTo(startX - 2, startY - 2);
       contentStream.stroke();
@@ -75,10 +81,6 @@ public class CreateLandscapePDF {
       contentStream.close();
 
       doc.save(outfile);
-    } finally {
-      if (doc != null) {
-        doc.close();
-      }
     }
   }
 
@@ -89,14 +91,11 @@ public class CreateLandscapePDF {
    */
   public static void main(String[] args) throws IOException {
     CreateLandscapePDF app = new CreateLandscapePDF();
-//    if (args.length != 2) {
-//      app.usage();
-//    } else {
-      app.doIt("Make China great again", "CreateLandscapePDF.pdf");
+    //    if (args.length != 2) {
+    //      app.usage();
+    //    } else {
+    String pathname = Util.outPathname("CreateLandscapePDF.pdf");
+    app.doIt("Make China great again", pathname);
   }
 
-  /** This will print out a message telling how to use this example. */
-  private void usage() {
-    System.err.println("usage: " + this.getClass().getName() + " <Message> <output-file>");
-  }
 }

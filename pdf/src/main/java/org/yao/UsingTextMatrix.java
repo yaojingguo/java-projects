@@ -13,8 +13,6 @@ import org.apache.pdfbox.util.Matrix;
 
 /** This is an example of how to use a text matrix. */
 public class UsingTextMatrix {
-  /** Constructor. */
-  public UsingTextMatrix() {}
 
   /**
    * creates a sample document with some text using a text matrix.
@@ -124,8 +122,8 @@ public class UsingTextMatrix {
    */
   public static void main(String[] args) throws IOException {
     UsingTextMatrix app = new UsingTextMatrix();
-
-    app.doIt("XDF", "UsingTextMatrix.pdf");
+    String pathname = Util.outPathname("UsingTextMatrix.pdf");
+    app.doIt("XDF", pathname);
   }
 
   /** This will print out a message telling how to use this example. */

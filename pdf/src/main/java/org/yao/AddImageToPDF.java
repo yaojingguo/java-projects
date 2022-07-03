@@ -67,12 +67,8 @@ public class AddImageToPDF {
    */
   public static void main(String[] args) throws IOException {
     AddImageToPDF app = new AddImageToPDF();
-
-    app.createPDFFromImage("1.pdf", "slide.png", "2.pdf");
+    String pathname = Util.outPathname("image.pdf");
+    app.createPDFFromImage("1.pdf", "slide.png", pathname);
   }
 
-  /** This will print out a message telling how to use this example. */
-  private void usage() {
-    System.err.println("usage: " + this.getClass().getName() + " <input-pdf> <image> <output-pdf>");
-  }
 }

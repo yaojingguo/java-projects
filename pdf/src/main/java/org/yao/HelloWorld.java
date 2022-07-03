@@ -16,12 +16,9 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
  * <p>The example is taken from the PDF file format specification.
  */
 public final class HelloWorld {
-  private HelloWorld() {}
 
   public static void main(String[] args) throws IOException {
-
-
-    String filename = "1.pdf";
+    String pathname = Util.outPathname("hello_world.pdf");
     String message = "hello, world";
 
     try (PDDocument doc = new PDDocument()) {
@@ -29,7 +26,6 @@ public final class HelloWorld {
       doc.addPage(page);
 
       PDFont font = PDType1Font.HELVETICA_BOLD;
-
       try (PDPageContentStream contents = new PDPageContentStream(doc, page)) {
         contents.beginText();
         contents.setFont(font, 12);
@@ -38,7 +34,7 @@ public final class HelloWorld {
         contents.endText();
       }
 
-      doc.save(filename);
+      doc.save(pathname);
     }
   }
 }
