@@ -14,15 +14,7 @@ public class Column {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public float getWidth() {
     return width;
-  }
-
-  public void setWidth(float width) {
-    this.width = width;
   }
 }
